@@ -7,7 +7,7 @@ This repository contains the experiment files, data, preprocessing scripts, and 
 This repository is organized as follows:
 
 What Comes to Mind
-* experiments
+* studies
 * raw_data
    * study1
    * study2
