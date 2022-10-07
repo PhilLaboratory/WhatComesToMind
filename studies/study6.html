@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dartmouth College</title>
+        <script src="jspsych-6.1.0/jspsych.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-html-button-response.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-call-function.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-survey-multi-choice.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-external-html.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-html-button-response.js"></script>
+        <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+        <script src = "//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type = "text/javascript"></script>
+        <script.src = 'https://code.jquery.com/jquery-3.4.1.min.js'></script>
+    </head>
+    <body></body>
+    <script>
+        
+    //variables
+    var category = 'jobs';
+    var start = Date.now;
+    var numTrials = 8;
+    var duration = 30000;
+    var descriptors_by_category = {"jobs": ['people oriented', 'common', 'think', 'important', 'creativity', 'dangerous', 'physical', 'been around', 'glamorous', 'male dominated', 'difficult'], "zoo animals": ["cute", "normal", "land", "think", "awake", "type, mammal", "tropics", "diet, carnivore", "dangerous", "large", "striking", "cool", "lifespan", "has large feet relative to its body size", "quiet", "has good hearing", "has long hair", "sleeps very little"], "vegetables": ["dishes", "popular", "available", "crunchy", "think", "warm", "heavy", "calories", "fragrant", "sweet"], "chain restaurants": ["interesting side dishes", "soft food", "cold food", "desserts", "healthy", "popular", "many locations", "casual", "quick", "brightly colored logo"], "sports": ['think', 'popular', 'spectators', 'competitive', 'strenuous', 'dangerous', 'expensive', 'been around', 'flexibility', 'learn'], "holidays": ['religious', 'political', 'around', 'family oriented', 'partying', 'time off', 'romantic', 'traditions', 'food', 'likes', 'think', 'widely celebrated', 'reflective', 'joyous', 'meaningful', 'early'], "kitchen appliances": ['common', 'essential', 'plain sight', 'often', 'think', 'dangerous', 'loud', 'metallic', 'expensive', 'easy', 'heavy']};    
+    var descriptors = jsPsych.randomization.sampleWithoutReplacement(descriptors_by_category[category], 8);
+    var questions_by_category = {"kitchen appliances": {'common': 'is commonly owned', 'essential': 'is essential', 'plain sight':'is kept in plain sight', 'often':'is used often', 'think':'you think about often', 'dangerous':'is dangerous', 'loud':'is loud', 'metallic':'is metallic', 'expensive':'is expensive', 'easy':'is easy to use', 'heavy':'is heavy for its size'}, "holidays": {'religious':'is religious', 'political':'is political', 'around':'has been around for a long time', 'family oriented':'is family oriented', 'partying':'involves partying', 'time off':'people get time off work for', 'romantic':'is romantic', 'traditions':'involves specific traditions', 'food':'is associated with certain foods', 'likes':'you like', 'think':'you think about often', 'widely celebrated':'is widely celebrated', 'reflective':'is reflective', 'joyous':'is joyous', 'meaningful':'is meaningful', 'early':'is celebrated early in the year'}, "sports":  {'think': "you think about often", 'popular': "is popular", 'dangerous':'is dangerous', 'strenuous':"is strenuous", 'spectators':"draws many spectators", 'competitive':"is competitive", 'expensive':"is expensive to play", 'been around':"has been around for a long time", 'learn':"is easy to learn", 'flexibility':"requires flexibility"}, "vegetables":  {"dishes":"is used in a large variety of dishes", "popular":"is popular", "available":"is widely available", "think":"you think about often", "fragrant":"is fragrant", "warm":"grows in warm climates", "sweet":"is sweet", "crunchy":"is crunchy", "heavy":"is heavy for its size", "calories":"is relatively high in calories"}, "chain restaurants": {"interesting side dishes": "serves interesting side dishes", "soft food": "This restaurant serves mostly soft food", "cold food": "serves mostly cold food", "desserts": "serves a variety of desserts", "popular":"is popular", "many locations":"has many locations", "healthy":"is healthy", "brightly colored logo":"has a brightly colored logo", "quick":"is quick", "casual":"is casual"}, "zoo animals": {"dangerous": "is dangerous", "large": "is large", "striking": "is striking", "cool": "is cool", "lifespan": "has a long lifespan", "has large feet relative to its body size": "has large feet relative to its body size", "quiet": "is quiet", "has good hearing": "has good hearing", "has long hair": "has long hair", "sleeps very little": "sleeps very little", "cute": "is cute", "normal": "is normal", "tropics":"lives in the tropics", "land": "lives on land", "think":"you think about often", "awake":"is awake during the day", "type, mammal":"is a mammal", "diet, carnivore":"is a carnivore"}, "jobs": {'people oriented':'is people oriented', 'common':'is common', 'think':'you think about often', 'important':'is important', 'creativity':'requires creativity', 'physical':'is very physical', 'dangerous':'is dangerous', 'been around':'has been around for a long time', 'glamorous':'is glamorous', 'male dominated':'is male dominated', 'difficult':'is difficult'}};
+    var questions = questions_by_category[category]
+    var turk_code = jsPsych.randomization.randomID(12);
+    jsPsych.data.addProperties({
+        turk_code: turk_code
+    });
+    jsPsych.data.addProperties({
+        descriptors: descriptors
+    });
+
+    var timeline = [];
+    
+    //get consent
+    var consent = {
+        type: "html-button-response",
+        stimulus: "<DIV align='left'><div>&nbsp;</div><div>Please consider this information carefully before deciding whether to participate in this research.</div><div>&nbsp;</div><div>The purpose of this research is to examine which factors influence social judgment and decision-</div><div>making. You will be asked to make judgements about individuals and actions in social scenarios.</div><div>We are simply interested in your judgement. The study will take less than 1 hour to complete,</div><div>and you will receive less than $20 on Amazon Mechanical Turk. Your compensation and time</div><div>commitment are specified in the study description. There are no anticipated risks associated with</div><div>participating in this study. The effects of participating should be comparable to those you would</div><div>ordinarily experience from viewing a computer monitor and using a mouse or keyboard for a</div><div>similar amount of time. At the end of the study, we will provide an explanation of the questions</div><div>that motivate this line of research and will describe the potential implications.</div><div>&nbsp;</div><div>Your participation in this study is completely voluntary and you may refuse to participate or you</div><div>may choose to withdraw at any time without penalty or loss of benefits to you which are</div><div>otherwise entitled. Your participation in this study will remain confidential. No personally</div><div>identifiable information will be associated with your data. Also, all analyses of the data will be</div><div>averaged across all the participants, so your individual responses will never be specifically</div><div>analyzed.</div><div>&nbsp;</div><div>If you have questions or concerns about your participation or payment, or want to request a</div><div>summary of research findings, please contact Dr. Jonathan Phillips at</div><div><a href=mailto:Jonathan.S.Phillips@dartmouth.edu>Jonathan.S.Phillips@dartmouth.edu</a>.</div><div>&nbsp;</div><div>Please save a copy of this form for your records.</div><div>&nbsp;</div></DIV><div>Agreement:</div><DIV align='left'><div>The nature and purpose of this research have been sufficiently explained and I agree to</div><div>participate in this study. I understand that I am free to withdraw at any time without incurring</div><div>any penalty. Please consent by clicking the button below to continue. Otherwise, please exit the</div><div>study at any time.</div><div>&nbsp;</div></DIV>",
+        choices: ['Submit']
+    };
+    timeline.push(consent);
+
+    //welcome
+    var welcome = {
+	    type: "html-keyboard-response",
+	    stimulus: "<div class='center-content'><br><br><br><br>Welcome to the HIT. Press any key to begin.",
+    };
+    timeline.push(welcome);
+
+    //get mturk ID
+    var get_id = {
+	    type: 'survey-text',
+        preamble: ["Please enter your Amazon Mechanical Turk Worker ID below.<br><br>If you do not enter your ID accurately, we will not be able to pay you."],
+        questions: [{prompt: "Worker ID:", name: "subject_id", required: true}],
+    }
+    timeline.push(get_id);
+     
+    //set instructions
+    var instructions = {
+        type: "html-keyboard-response",
+        stimulus: "In this experiment, you will be asked to list " + category + " that fit a certain description.<br><br> You will have " + duration/1000 + " seconds per round to give answers, after which the round will automatically end. Please work as fast as you can, listing "+ category + " that you think fit the description as quickly as possible.<br><br> Type one job per text box, and then press enter.<br><br>Press any key to begin."
+    };
+    timeline.push(instructions)
+    
+    //collect responses for set time
+    var j = 0;
+    for(var i=0; i<numTrials; i++){
+        var timer_start = {
+            type: 'call-function',
+            func: function(){
+                start = Date.now();
+                setTimeout(function(){
+                    jsPsych.finishTrial();
+                }, duration);
+            }
+        }
+
+        var q_timeline = {
+            timeline: [
+                {
+                    type: 'survey-text',
+                    var: d = descriptors[i],
+                    var: q = questions[d],
+                    preamble: "<br> List a zoo animal that is large. <br><br> Then press enter.",
+                    questions: [
+                        { prompt: "", required: true, name: d},
+                    ],
+                }
+            ],
+            loop_function: function(){
+                if(Date.now() - start < duration){
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        };
+
+        var debrief = {
+            type: "html-button-response",
+            stimulus: function(){
+                j = j+1;
+                if(j<numTrials) {
+                    var msg = "The round has finished!<br><br> Please continue to list  "+ category + " as quickly as possible, pressing enter after each response. <br><br> Click 'Continue' when you're ready for the next round. <br><br>";
+                }
+                else {
+                    var msg = "The round has finished! Click 'Continue' to continue with the study. <br><br>";
+                }
+                return msg;
+            },
+            choices: ['Continue'],
+        } 
+        timeline.push(timer_start, q_timeline, debrief);
+    }
+    
+    //demographic information  
+    var demo1 = {
+        type: 'survey-text',
+        preamble: 'Please provide us with some demographic information.',
+        questions: [{prompt: "How old are you?", required: true}, {prompt: "What is your native language?", required: true}, {prompt: "What is your nationality?", required: true}, {prompt: "In which country do you live?", required: true}],
+    };
+    timeline.push(demo1);
+    var demo2 = {
+        type: 'survey-multi-choice',
+        preamble: "Please provide us with some demographic information.",
+        questions: [
+            {prompt: "What is your gender?", options: ["Male","Female","Other"], required:true}, 
+            {prompt: "Are you a student?", options: ["Yes","No"], required: true},
+            {prompt: "What is your education level?", options: ["Grade/elementary school","High school","Some college or university","College or university degree","Graduate degree, Masters","PhD"], required: true}
+        ],
+        on_finish: function() {
+            jsPsych.data.displayData('json');
+            save_data(jsPsych.data.get().values());
+        },
+	};
+    timeline.push(demo2);
+
+    //submit HIT with completion code
+    var end = {
+        type: "html-button-response",
+        stimulus: "<h4>Thank you for your participation!</h4><h4>In order to complete this HIT, you must enter the code below into Turk.</h4><h4>Your secret completion code is:<br><br>" + turk_code + "<br><br>Copy this code now.</h4><h4>Once you've copied it, click the button below to leave this window.</h4>",
+        choices: ['Finish'],
+    };
+    timeline.push(end);
+
+    //debrief participants
+    var debrief = {
+	    type: "html-keyboard-response",
+	    stimulus: "<DIV align='left'><div>&nbsp;</div><div><strong>Study Debriefing</strong></div><div>Judgement and decision making are important aspects of public and private life. Using surveys</div><div>like the one you just completed, we are examining the factors that go into making social</div><div>decisions.</div><div>&nbsp;</div><div><strong>How is this being tested?</strong></div><div>We have asked you to respond to stories or videos that differ on several important factors. By</div><div>isolating different variables that are involved in social thought, we can better understand how we</div><div>arrive at complex decision-making. For example, some actions are seen as more worthy of blame</div><div>if they are performed intentionally. Harming someone on purpose is generally worse than</div><div>harming someone by accident, or even harming someone in a way that is foreseen but not</div><div>intended.</div><div>&nbsp;</div><div><strong>Main questions and hypotheses:</strong></div><div>A fundamental goal of our research is to understand the cognitive and emotional factors that</div><div>influence social judgment and decision-making. We are studying these factors by presenting</div><div>people with hypothetical questions that vary in specific ways and seeing which factors make a</div><div>difference. Some people filled out the same survey that you just filled out. Others got slightly</div><div>different surveys.</div><div>&nbsp;</div><div><strong>Why is this important to study?</strong></div><div>By comparing answers on these important factors, we learn about what factors affect social</div><div>judgment. This has crucial implications for many public domains, including the legal system.</div><div>&nbsp;</div><div><strong>How to learn more:</strong></div><div>If you are interested in learning more, you may want to consult the following articles:</div><div>Phillips, J., &amp; Cushman, F. (2017). Morality constrains the default representation of what is</div><div style='padding-left: 30px;'>possible. Proceedings of the National Academy of Sciences of the United States of</div><div style='padding-left: 30px;'>America, 114(18), 4649&ndash;4654. https://doi.org/10.1073/pnas.1619717114</div><div>Phillips, J., Morris, A., &amp; Cushman, F. (2019). How we know what not to think.</div><div style='padding-left: 30px;'>Trends in Cognitive Sciences, 23(12), 1026&ndash;1040. https://doi.org/10.1016/j.tics.2019.09.007</div><div>Phillips, J., Buckwalter, W., Cushman, F., Friedman, O., Martin, A., Turri, J., Santos, L., &amp;</div><div style='padding-left: 30px;'>Knobe, J. (2020). Knowledge before Belief. Behavioral and Brain Sciences, 1-37.</div><div style='padding-left: 30px;'>doi:10.1017/S0140525X20000618</div><div>&nbsp;</div><div><strong>How to contact the researcher:</strong></div><div>If you have questions or concerns about your participation or</div><div>payment, or want to request a summary of research findings, please contact the Primary</div><div>Investigator: Dr. Jonathan Phillips, at Jonathan.S.Phillips@dartmouth.edu.</div><div>Whom to contact about your rights in this research:</div><div>If you have questions, concerns,</div><div>complaints, or suggestions about the present research, you may call the Office of the Committee</div><div>for the Protection of Human Subjects at Dartmouth College (603) 646-6482 during normal</div><div>business hours.</div><div>&nbsp;</div><div><strong>Thank you for your participation!</strong></div><div>&nbsp;</div></DIV>",
+    };
+    timeline.push(debrief);
+
+    //save data to database
+    function save_data(data, url) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            data
+        }));
+    }
+
+    //run
+    jsPsych.init({
+        timeline
+    })
+
+
+    </script>
+</html>

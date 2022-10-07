@@ -1,0 +1,3 @@
+Preprocessing for study 2 consisted of manually extracting potentially relevant features from participant responses.
+For each category, all features that were remarked upon by at least 3 participants were selected, along with additional features which were expected to vary in their relevance to the category.
+These features make up the feature list for each category.

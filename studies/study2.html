@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dartmouth College</title>
+        <script src="jspsych-6.1.0/jspsych.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-html-button-response.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-survey-multi-choice.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-external-html.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-html-button-response.js"></script>
+        <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+        <script.src = 'https://code.jquery.com/jquery-3.4.1.min.js'></script>
+    </head>
+    <body></body>
+    <script>
+
+    //variables
+
+    //items to compare in each category
+    var items_by_category = {"chain restaurants": ['Mcdonalds', 'Burger King', 'Wendys', 'Taco Bell', 'Applebees', 'Chilis', 'Olive Garden', 'Arbys', 'Pizza Hut', 'Chipotle', 'TGI Fridays', 'Subway', 'Red Lobster', 'Chick Fil A', 'Kentucky Fried Chicken', 'Outback Steakhouse', 'Red Robin', 'Dennys', 'Cheesecake Factory', 'Panera', 'Buffalo Wild Wings', 'Popeyes', 'Dominos', 'IHOP', 'Dairy Queen', 'Five Guys', 'Hardees', 'Panda Express', 'Starbucks', 'Cracker Barrel', 'Jimmy Johns', 'Sonic', 'Jack in the Box', 'Ruby Tuesdays', 'PF Changs', 'Hooters', 'Papa Johns', 'Texas Roadhouse', 'Little Ceasars', 'Dunkin Donuts', 'Long John Silvers', 'Maggianos'], "vegetables": ['carrots', 'broccoli', 'lettuce', 'peas', 'potatoes', 'onions', 'cauliflower', 'corn', 'green beans', 'tomatoes', 'cucumbers', 'spinach', 'squash', 'celery', 'peppers', 'eggplant', 'cabbage', 'asparagus', 'brussel sprouts', 'kale', 'turnips', 'zucchini', 'garlic', 'pumpkins', 'beets', 'mushrooms', 'radish', 'okra', 'yams', 'sweet potatoes', 'arugula', 'sprouts', 'artichoke', 'parsnips', 'bok choy', 'lima beans', 'avocado', 'snap peas', 'leeks', 'collard greens'], "sports": ['baseball', 'football', 'soccer', 'tennis', 'hockey', 'basketball', 'running', 'golf', 'volleyball', 'swimming', 'cricket', 'lacrosse', 'boxing', 'rugby', 'gymnastics', 'wrestling', 'ice skating', 'softball', 'bowling', 'skiing', 'polo', 'badminton', 'racecar driving', 'horseback riding', 'fencing', 'cheerleading', 'ping pong', 'biking', 'squash', 'curling', 'diving', 'raquetball', 'field hockey', 'water polo', 'handball', 'dance', 'snowboarding'], "holidays": ['Christmas', 'Thanksgiving', 'Fourth of July', 'Easter', 'Labor Day', 'Memorial Day', 'New Years', 'Halloween', 'Valentines Day', 'Veterans Day', 'Martin Luther King Jr. Day', 'Presidents Day', "St. Patricks Day", 'Hanukkah', 'Kwanza', 'Mothers Day', 'Fathers Day', 'Christopher Columbus Day', 'Passover', 'Birthdays', 'Chinese New Year', 'Ramadan', 'Cinco de Mayo', 'Earth Day', 'Flag Day', 'Diwali', 'Juneteenth', 'Winter Solstice', 'Boxing Day'], "kitchen appliances": ['a microwave', 'a blender', 'a refridgerator', 'a toaster', 'an electric mixer', 'an oven', 'a coffee maker', 'a stove', 'a dishwasher', 'a toaster oven', 'a slow cooker', 'a food processor', 'an air fryer', 'a waffle iron', 'a pressure cooker', 'a can opener', 'a freezer', 'a deep fryer', 'a rice cooker', 'a kettle', 'a juicer', 'an electric knife', 'a griddle', 'a sink', 'a grill', 'a coffee grinder', 'a garbage disposal', 'a wine fridge', 'a garlic press', 'a panini press', 'a timer',  'an ice maker'], "zoo animals": ["leopard", "chimp", "beetle", "zebra", "sea lion", "tarantula", "giraffe", "bull", "whale", "rabbit", "lion", "hippo", "baboon", "monkey", "snake", "tiger", "panther", "kangaroo", "owl", "elephant", "rhino", "cheetah", "gazelle", "alligator", "penguin", "panda", "parrot", "eagle", "polar bear", "koala", "ostrich", "crocodile", "dolphin", "lemur", "turtle", "gorilla", "wolf", "shark", "cow", "peacock", "jaguar", "camal", "platypus", "flamingo", "duck", "sloth", "seal", "grizzly bear", "lizard", "fish"], "jobs": ['doctor', 'nurse', 'teacher', 'lawyer', 'police officer', 'firefighter', 'accountant', 'cashier', 'chef', 'waitstaff', 'engineer', 'banker', 'plumber', 'dentist', 'construction worker', 'janitor', 'salesperson', 'secretary', 'truck driver', 'electrician', 'manager', 'mechanic', 'carpenter', 'driver', 'programmer', 'clerk', 'politician', 'mail carrier', 'scientist', 'veterinarian', 'pilot', 'taxi driver', 'ceo', 'designer', 'paramedic', 'garbage collector', 'receptionist', 'artist', 'judge', 'bus driver', 'farmer', 'milkman', 'office worker', 'painter', 'bartender', 'administrative assistant', 'writer', 'customer service representative', 'analyst', 'factory worker', 'information technology', 'stock broker', 'technician', 'musician', 'librarian', 'paleontologist', 'actor', 'marketer', 'pharmacist', 'social worker', 'flight attendant', 'busboy', 'astronaut', 'professor', 'contractor', 'youtuber', 'consultant', 'singer', 'producer', 'dancer',  'repariman', 'maid', 'auditor', 'beautician', 'roofer', 'lineman', 'senator', 'president', 'athlete', 'journalist', 'porn star', 'assistant', 'director', 'football player', 'therapist']}  
+    //set category
+    var category = "zoo animals"
+    var items = items_by_category[category]
+    var numTrials = 10;
+    var myItems = jsPsych.randomization.sampleWithoutReplacement(items, numTrials*2);
+    var turk_code = jsPsych.randomization.randomID(12);
+    jsPsych.data.addProperties({
+        turk_code: turk_code
+    });
+
+    var timeline = [];    
+        
+    //get consent
+    var consent = {
+        type: "html-button-response",
+        stimulus: "<DIV align='left'><div>&nbsp;</div><div>Please consider this information carefully before deciding whether to participate in this research.</div><div>&nbsp;</div><div>The purpose of this research is to examine which factors influence social judgment and decision-</div><div>making. You will be asked to make judgements about individuals and actions in social scenarios.</div><div>We are simply interested in your judgement. The study will take less than 1 hour to complete,</div><div>and you will receive less than $20 on Amazon Mechanical Turk. Your compensation and time</div><div>commitment are specified in the study description. There are no anticipated risks associated with</div><div>participating in this study. The effects of participating should be comparable to those you would</div><div>ordinarily experience from viewing a computer monitor and using a mouse or keyboard for a</div><div>similar amount of time. At the end of the study, we will provide an explanation of the questions</div><div>that motivate this line of research and will describe the potential implications.</div><div>&nbsp;</div><div>Your participation in this study is completely voluntary and you may refuse to participate or you</div><div>may choose to withdraw at any time without penalty or loss of benefits to you which are</div><div>otherwise entitled. Your participation in this study will remain confidential. No personally</div><div>identifiable information will be associated with your data. Also, all analyses of the data will be</div><div>averaged across all the participants, so your individual responses will never be specifically</div><div>analyzed.</div><div>&nbsp;</div><div>If you have questions or concerns about your participation or payment, or want to request a</div><div>summary of research findings, please contact Dr. Jonathan Phillips at</div><div><a href=mailto:Jonathan.S.Phillips@dartmouth.edu>Jonathan.S.Phillips@dartmouth.edu</a>.</div><div>&nbsp;</div><div>Please save a copy of this form for your records.</div><div>&nbsp;</div></DIV><div>Agreement:</div><DIV align='left'><div>The nature and purpose of this research have been sufficiently explained and I agree to</div><div>participate in this study. I understand that I am free to withdraw at any time without incurring</div><div>any penalty. Please consent by clicking the button below to continue. Otherwise, please exit the</div><div>study at any time.</div><div>&nbsp;</div></DIV>",
+        choices: ['Submit']
+    };
+    timeline.push(consent);
+
+    //welcome
+    var welcome = {
+	    type: "html-keyboard-response",
+	    stimulus: "<div class='center-content'><br><br><br><br>Welcome to the HIT. Press any key to begin.",
+    };
+    timeline.push(welcome);
+
+    //get mturk ID
+    var get_id = {
+	    type: 'survey-text',
+        preamble: ["Please enter your Amazon Mechanical Turk Worker ID below.<br><br>If you do not enter your ID accurately, we will not be able to pay you."],
+        questions: [{prompt: "Worker ID:", name: "subject_id", required: true}],
+    }
+    timeline.push(get_id);
+    
+    //set instructions
+    var instructions = {
+        type: "html-keyboard-response",
+        stimulus: "In this experiment, you will be asked to compare two " + category + ". Please list whatever similarities and differences come to mind. <br><br>Press any key to begin."
+    };
+
+    timeline.push(instructions)
+ 
+    //set randomized procedure
+    for (var i = 0; i < numTrials; i++) {
+        trial = {
+            type: 'survey-text',
+            var: a1 = myItems[2*i],
+            var: a2 = myItems[(2*i)+1],
+            preamble: "<br>Consider a <b>" + a1 + "</b> and a <b>" + a2 + "</b>.<br>What are their similarities and differences?<br>Please compare these two " + category + " below, listing one similarity or difference per text box.<br><br>If you have extra boxes, just type n/a.",
+            questions: [
+                { prompt: "Similarities:", required: "true", columns: 80, name: a1 + ", " + a2},
+                { prompt: "", required: "true", columns: 80},
+                { prompt: "", required: "true", columns: 80},
+                { prompt: "", required: "true", columns: 80},
+                { prompt: "Differences:", required: "true", columns: 80},
+                { prompt: "", required: "true", columns: 80},
+                { prompt: "", required: "true", columns: 80},
+                { prompt: "", required: "true", columns: 80},
+            ],
+        }
+        timeline.push(trial)
+    }
+    
+    //demographic information 
+    var demo1 = {
+        type: 'survey-text',
+        preamble: 'Please provide us with some demographic information.',
+        questions: [{prompt: "How old are you?", required: true}, {prompt: "What is your native language?", required: true}, {prompt: "What is your nationality?", required: true}, {prompt: "In which country do you live?", required: true}],
+    };
+    timeline.push(demo1);
+    var demo2 = {
+        type: 'survey-multi-choice',
+        preamble: "Please provide us with some demographic information.",
+        questions: [
+            {prompt: "What is your gender?", options: ["Male","Female","Other"], required:true}, 
+            {prompt: "Are you a student?", options: ["Yes","No"], required: true},
+            {prompt: "What is your education level?", options: ["Grade/elementary school","High school","Some college or university","College or university degree","Graduate degree, Masters","PhD"], required: true}
+        ],
+        on_finish: function() {
+            jsPsych.data.displayData('json');
+            save_data(jsPsych.data.get().values());
+        },
+	};
+    timeline.push(demo2);
+
+    //submit HIT with completion code
+    var end = {
+        type: "html-button-response",
+        stimulus: "<h4>Thank you for your participation!</h4><h4>In order to complete this HIT, you must enter the code below into Turk.</h4><h4>Your secret completion code is:<br><br>" + turk_code + "<br><br>Copy this code now.</h4><h4>Once you've copied it, click the button below to leave this window.</h4>",
+        choices: ['Finish'],
+    };
+    timeline.push(end);
+
+    //debrief participants
+    var debrief = {
+	    type: "html-keyboard-response",
+	    stimulus: "<DIV align='left'><div>&nbsp;</div><div><strong>Study Debriefing</strong></div><div>Judgement and decision making are important aspects of public and private life. Using surveys</div><div>like the one you just completed, we are examining the factors that go into making social</div><div>decisions.</div><div>&nbsp;</div><div><strong>How is this being tested?</strong></div><div>We have asked you to respond to stories or videos that differ on several important factors. By</div><div>isolating different variables that are involved in social thought, we can better understand how we</div><div>arrive at complex decision-making. For example, some actions are seen as more worthy of blame</div><div>if they are performed intentionally. Harming someone on purpose is generally worse than</div><div>harming someone by accident, or even harming someone in a way that is foreseen but not</div><div>intended.</div><div>&nbsp;</div><div><strong>Main questions and hypotheses:</strong></div><div>A fundamental goal of our research is to understand the cognitive and emotional factors that</div><div>influence social judgment and decision-making. We are studying these factors by presenting</div><div>people with hypothetical questions that vary in specific ways and seeing which factors make a</div><div>difference. Some people filled out the same survey that you just filled out. Others got slightly</div><div>different surveys.</div><div>&nbsp;</div><div><strong>Why is this important to study?</strong></div><div>By comparing answers on these important factors, we learn about what factors affect social</div><div>judgment. This has crucial implications for many public domains, including the legal system.</div><div>&nbsp;</div><div><strong>How to learn more:</strong></div><div>If you are interested in learning more, you may want to consult the following articles:</div><div>Phillips, J., &amp; Cushman, F. (2017). Morality constrains the default representation of what is</div><div style='padding-left: 30px;'>possible. Proceedings of the National Academy of Sciences of the United States of</div><div style='padding-left: 30px;'>America, 114(18), 4649&ndash;4654. https://doi.org/10.1073/pnas.1619717114</div><div>Phillips, J., Morris, A., &amp; Cushman, F. (2019). How we know what not to think.</div><div style='padding-left: 30px;'>Trends in Cognitive Sciences, 23(12), 1026&ndash;1040. https://doi.org/10.1016/j.tics.2019.09.007</div><div>Phillips, J., Buckwalter, W., Cushman, F., Friedman, O., Martin, A., Turri, J., Santos, L., &amp;</div><div style='padding-left: 30px;'>Knobe, J. (2020). Knowledge before Belief. Behavioral and Brain Sciences, 1-37.</div><div style='padding-left: 30px;'>doi:10.1017/S0140525X20000618</div><div>&nbsp;</div><div><strong>How to contact the researcher:</strong></div><div>If you have questions or concerns about your participation or</div><div>payment, or want to request a summary of research findings, please contact the Primary</div><div>Investigator: Dr. Jonathan Phillips, at Jonathan.S.Phillips@dartmouth.edu.</div><div>Whom to contact about your rights in this research:</div><div>If you have questions, concerns,</div><div>complaints, or suggestions about the present research, you may call the Office of the Committee</div><div>for the Protection of Human Subjects at Dartmouth College (603) 646-6482 during normal</div><div>business hours.</div><div>&nbsp;</div><div><strong>Thank you for your participation!</strong></div><div>&nbsp;</div></DIV>",
+    };
+    timeline.push(debrief);
+
+    //save data to database
+    function save_data(data, url) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            data
+        }));
+    }
+    //run
+    jsPsych.init({
+        timeline
+    })
+
+    </script>
+</html>
