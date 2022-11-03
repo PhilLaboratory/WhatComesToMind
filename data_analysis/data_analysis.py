@@ -1,10 +1,9 @@
-#!/usr/bin/env python3
-
 import json
 import numpy as np
 from scipy import stats
 import pandas as pd
 from pymer4.models import Lmer
+import pingouin as pg
 import math
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
@@ -13,6 +12,7 @@ import matplotlib.patches as mpatches
 rcParams.update({'figure.autolayout': True})
 
 data_loc = '../clean_data/'
+
 
 #Plots histogram of category member response counts for each category
 #First plots all responses
@@ -56,6 +56,7 @@ def plot_response_counts():
         plt.title(cat.title(), fontweight='bold', fontsize=18)
         plt.ylabel('Response Frequency', fontweight='bold', fontsize=16)
         plt.show()
+
 
 #Plots zoo animals in 3d portion of feature space
 #Colored according to log probability of coming to mind
@@ -133,10 +134,11 @@ def plot_ft_relevance():
         counts = [pair[1] for pair in data]
         pos = range(len(labels))
         plt.bar(pos, counts, color=c)
-        plt.xticks(pos, labels, rotation=40)
-        plt.title(cat.title(), fontweight='bold', fontsize=18)
-        plt.ylabel('Feature relevance', fontweight='bold', fontsize=15)
+        plt.xticks(pos, labels, rotation=60, fontsize=14)
+        plt.title(cat.title(), fontweight='bold', fontsize=26)
+        plt.ylabel('Feature Relevance', fontweight='bold', fontsize=18)
         plt.show()
+
 
 #Takes dictionary with each features' predictiveness of what comes to mind in each category
 #Plots scatter plot of feature predictiveness of what comes to mind, and feature relevance
@@ -160,6 +162,7 @@ def plot_ft_predicteveness_vs_relevance(ft_pred):
             all_rel.append(ft_relevance[cat][k])
             pred.append(ft_pred[cat][k])
             all_pred.append(ft_pred[cat][k])
+            #shorten and store ft names as labels
             if ", " in k:
                 k = k.split(", ")[1]
             if k == "has good hearing":
@@ -169,32 +172,31 @@ def plot_ft_predicteveness_vs_relevance(ft_pred):
             if k == "has long hair":
                 k = "long hair"
             lab.append(k)
-        if cat != "zoo animals":
-            continue
+
         fig = plt.figure()
         ax = plt.axes()
-        ax.set_xlabel('Relevance', fontweight='bold')
-        ax.set_ylabel('Predictiveness of What Comes to Mind', fontweight='bold')
+        ax.set_xlabel('Relevance', fontweight='bold', fontsize=15)
+        ax.set_ylabel('Predictiveness of What Comes to Mind', fontweight='bold', fontsize=15)
         for i, k in enumerate(lab):
-            if k in ['good hearing', 'large feet', 'long hair']:
-                ax.text(rel[i], pred[i]-0.01, ' ' + k)
+            if k in ['good hearing', 'large feet', 'long hair', 'diurnal','cool']:
+                ax.text(rel[i], pred[i]-0.015, '' + k, fontsize=14)
             else:
-                ax.text(rel[i], pred[i], ' ' + k)
+                ax.text(rel[i], pred[i], ' ' + k, fontsize=14)
         plt.scatter(rel, pred, color=c)
         #obtain m (slope) and b(intercept) of linear regression line
         m, b = np.polyfit(rel, pred, 1)
         rel = np.array(rel)
         #add linear regression line to scatterplot 
         plt.plot(rel, m*rel+b, color=c)
-        plt.title(cat.title(), fontweight='bold')
+        plt.title(cat.title(), fontweight='bold', fontsize=22)
         plt.show()
-        r,p = stats.pearsonr(all_rel, all_pred)
+        r,p = stats.pearsonr(rel, pred)
         print(cat + ": r=" + str(r) + ", p=" + str(p))
     #plot all categories together
     fig = plt.figure()
     ax = plt.axes()
-    ax.set_xlabel('Relevance', fontweight='bold')
-    ax.set_ylabel('Predictiveness of What Comes to Mind', fontweight='bold')
+    ax.set_xlabel('Relevance', fontweight='bold', fontsize=15)
+    ax.set_ylabel('Predictiveness of What Comes to Mind', fontweight='bold', fontsize=15)
     plt.scatter(all_rel, all_pred, color=ft_colors)
     #obtain m (slope) and b(intercept) of linear regression line
     m, b = np.polyfit(all_rel, all_pred, 1)
@@ -205,10 +207,11 @@ def plot_ft_predicteveness_vs_relevance(ft_pred):
     for cat, col in cat_colors.items():
         patches.append(mpatches.Patch(color=col, label=cat))
     ax.legend(handles=patches) 
-    plt.title("All Categories", fontweight='bold')
+    plt.title("All Categories", fontweight='bold',fontsize=22)
     plt.show()
     r,p = stats.pearsonr(all_rel, all_pred)
     print("overall: r=" + str(r) + ", p=" + str(p))
+
 
 #Takes response counts for category members in each category
 #And ratings for each category member for each feature in each category
@@ -233,6 +236,7 @@ def get_ft_predictiveness(response_counts, ratings):
                 cat_memb_freq.append(response_counts[cat][cat_memb])
             ft_pred[cat][ft] = np.corrcoef(cat_memb_rating, cat_memb_freq)[0][1]
     return ft_pred  
+
 
 #Takes dictionary with each features' predictiveness of what comes to mind in each category
 #For each category in keys, plots each feature's predictiveness of what comes to mind in that category
@@ -274,7 +278,7 @@ def plot_ft_predictiveness(ft_pred):
         plt.legend(['positive','negative'], fontsize=12)
         plt.xticks(pos, labels, rotation=60, fontsize=12)
         plt.title(cat.title(), fontweight='bold', fontsize=24)
-        plt.ylabel('Predictiveness of What Comes to Mind', fontweight='bold', fontsize=14)
+        plt.ylabel('Predictiveness of What Comes to Mind', fontweight='bold', fontsize=16)
         plt.show()
 
 
@@ -294,7 +298,7 @@ def run_intrusions_lmer():
                 subject.append(trial["subject_id"])
                 category.append(cat_nums[cat])
                 feature_dimension.append(trial["ft_dimension"])
-                predictive.append(int(trial["is_predictive"]))
+                predictive.append(int(trial["is_predictive"])+1)
     #convert to df
     my_data = pd.DataFrame({"intrusion":intrusion,"subject":subject,"category":category,"feature_dimension":feature_dimension,"predictive":predictive})
     #fit model and print results
@@ -304,8 +308,7 @@ def run_intrusions_lmer():
     print("overall prob of intrusions for non predictive features:", np.mean([intrusion[i] for i in range(len(intrusion)) if not predictive[i]]))
 
 
-#Plots intrusion probability for each feature
-#Plots for each category individually, as well as all together
+#For each category, plots intrusion probability for both ends of each feature dimension
 def plot_intrusions():
     with open(data_loc + 'study5/responses.json') as f:
         data = json.load(f)
@@ -322,6 +325,7 @@ def plot_intrusions():
             if trial["is_predictive"] and ft not in predictive:
                 predictive.append(ft)
             intrusions[cat][dim] = intrusions[cat].get(dim, {})
+            #record probability of intrusion for this subject
             intrusions[cat][dim][ft] = intrusions[cat][dim].get(ft, []) + [np.mean(trial["intrusions"])]
     #store average probability of intrusions for a given feature across subjects
     intrusion_prob = {}
@@ -331,7 +335,7 @@ def plot_intrusions():
             intrusion_prob[cat][dim] = intrusion_prob[cat].get(dim, {})
             for ft, lists in ft_lists.items():
                 intrusion_prob[cat][dim][ft] = np.mean(intrusions[cat][dim][ft])
-    
+    print(intrusion_prob)
     #plot intrusion probability for each category seperately
     for cat, ft_dims in intrusion_prob.items():
         #store ft names for labels and intrusion probabilities for y coordinates
@@ -354,7 +358,7 @@ def plot_intrusions():
         for i in range(0,len(x)-1,2):
             line, = plt.plot([x[i],x[i+1]],[y[i],y[i+1]])#, color=c)
             line.set_label(labels[i] + "-" + labels[i+1])
-        plt.scatter(x + [0,1], y + [.7,.7], color=['blue','blue','orange','orange','green','green','red','red','purple','purple', 'white', 'white'])
+        plt.scatter(x + [0,1], y + [.65,.65], color=['blue','blue','orange','orange','green','green','red','red','purple','purple', 'white', 'white'])
         
         #set labels
         ax.set_ylabel('Probability of Intrusion',fontweight='bold')
@@ -362,64 +366,6 @@ def plot_intrusions():
         plt.title(cat.title(), fontweight='bold')
         plt.legend(loc='upper left')
         plt.show()
-    
-
-    #plot all categories together
-    
-    #store ft names for labels and intrusion probabilities for y coordinates
-    labels = []
-    y = []
-    for cat, ft_dims in intrusion_prob.items():
-        for dim, ft_probs in ft_dims.items():
-            for ft, prob in ft_probs.items():
-                if ft in predictive:
-                    labels.append(ft)
-                    y.append(prob)
-            for ft, prob in ft_probs.items():
-                if ft not in predictive:
-                    labels.append(ft)
-                    y.append(prob)
-    #arbitrary x coordinates
-    x = [0.3,0.8] * int(len(y)/2)
-
-    fig, ax = plt.subplots()
-
-    #color lines by category
-    cat_colors = {'zoo animals': 'purple', 'holidays': 'red', 'chain restaurants': 'orange'}
-
-    #line types to differentiate features within a category
-    line_types = ['solid','dotted','dashed','dashdot', (0,(3,5,1,5,1,5))]
-    dot_color = []
-    for i in range(0,len(x)-1,2):
-        c=list(cat_colors.values())[(i>9)+(i>19)]
-        dot_color = dot_color + [c, c]
-        line, = plt.plot([x[i],x[i+1]],[y[i],y[i+1]], color=c, linestyle=line_types[i%5])
-        #make labels more informative if necessary
-        if labels[i]=='widely celebrated':
-            line.set_label('many celebrate' + "-" + 'few celebrate')
-        elif labels[i]=='think':
-            line.set_label('often think of' + "-" + 'rarely think of')
-        elif labels[i]=='likes':
-            line.set_label('likes' + "-" + "doesn't like")
-        elif labels[i]=='time off':
-            line.set_label('time off' + "-" + "little time off")  
-        else:
-            line.set_label(labels[i] + "-" + labels[i+1])
-    
-    #plot intrusion probabilities
-    plt.scatter(x + [0,1], y + [.7,.7], color=dot_color + ['white','white'])#['blue','blue','orange','orange','green','green','red','red','purple','purple', 'white', 'white'])
-    
-    #set labels
-    ax.set_ylabel('Probability of Intrusion',fontweight='bold')
-    patches=[]
-    for cat, col in cat_colors.items():
-        patches.append(mpatches.Patch(color=col, label=cat))
-    current_handles, current_labels = plt.gca().get_legend_handles_labels()
-    plt.legend(loc='upper left', handles=patches+current_handles)
-    plt.xticks([0.3,0.8], ['Predictive\nEnd', 'Non Predictive\nEnd'], fontweight='bold')
-    plt.title("All Categories", fontweight='bold')
-
-    plt.show()
 
 
 #Runs all analyses by default
@@ -445,15 +391,14 @@ if __name__ == "__main__":
         ratings = json.load(f)
     adhoc_ft_pred = get_ft_predictiveness(response_counts, ratings)
     plot_ft_predictiveness(adhoc_ft_pred)
-
+    
     #plot intrusion probability and print lmer details
     run_intrusions_lmer()
     plot_intrusions()
-
+    
     #plot feature relevance
     plot_ft_relevance()
     
     #plot relationship between feature predictiveness and feature relevance
     #also prints pearson correlation coefficient and p value
     plot_ft_predicteveness_vs_relevance(ft_pred)
-    
