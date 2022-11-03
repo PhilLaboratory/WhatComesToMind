@@ -1,7 +1,7 @@
 # What Comes to Mind
 
 ## Overview
-This repository contains the experiment files, data, preprocessing scripts, and analyses used to produce the paper, "XX" by Tracey Mills and Jonathan Phillips. 
+This repository contains the experiment files, data, preprocessing scripts, and analyses used to produce the paper, "Locating what comes to mind in empirically derived representational spaces" by Tracey Mills and Jonathan Phillips. 
 
 ## Directory Structure
 This repository is organized as follows:
@@ -28,6 +28,8 @@ What Comes to Mind
    * study5
    * study6
 * data_analysis
+   * main_analysis
+   * supplementary_analysis
 
 
 ## Mapping of studies in paper to file structure
@@ -39,4 +41,4 @@ Study 4 is comprised of 3 components, denoted throughout the repo as _generation
 
 
 ## Data and Analyses
-Preprocessing is done on the raw data from each study to produce the clean data for analysis. The analysis code for each study can be found in the data_analysis directory. In this directory, analyses on the data from each study are conducted in the data_analysis.py file.
+Preprocessing is done on the raw data from each study to produce the clean data for analysis. The analysis code for each study can be found in the data_analysis directory. In this directory, analyses on the data from each study are conducted in the main_analysis.py file. Analyses included in supplementary materials can be found in the supplementary_analysis.py file.
