@@ -157,7 +157,7 @@ def plot_ft_relevance():
         plt.show()
 
 """
-Takes dictionary with each features' predictiveness of what comes to mind in each category
+Takes dictionary with each feature's predictiveness of what comes to mind in each category
 Plots scatter plot of feature predictiveness of what comes to mind, and feature relevance
     Within each category
     And across categories
@@ -520,10 +520,10 @@ if __name__ == "__main__":
     data_loc = '../clean_data/'
 
     #plot response counts for each category
-    #plot_response_counts()
+    plot_response_counts()
     
     #plot zoo animals in 3d portion of feature space
-    #plot_ratings_3d()
+    plot_ratings_3d()
 
     #plot each feature's predictiveness of coming to mind
     with open(data_loc + 'study1/response_counts.json') as f:
@@ -531,8 +531,8 @@ if __name__ == "__main__":
     with open(data_loc + 'study3/ratings.json') as f:
         ratings = json.load(f)
     ft_pred = get_ft_predictiveness(response_counts, ratings)
-    #plot_ft_predictiveness(ft_pred)
-    """
+    plot_ft_predictiveness(ft_pred)
+
     #plot feature predictiveness in ad hoc categories
     with open(data_loc + 'study4/generation_response_counts.json') as f:
         response_counts = json.load(f)
@@ -550,7 +550,6 @@ if __name__ == "__main__":
     
     #plot relationship between feature predictiveness and feature relevance
     #and print correlation details
-    """
     plot_ft_predicteveness_vs_relevance(ft_pred)
     
 
@@ -559,23 +558,23 @@ if __name__ == "__main__":
         decision_response_counts = json.load(f)
     with open(data_loc + 'study7/consideration_counts.json') as f:
         decision_consideration_counts = json.load(f)
-    #decision_response_ft_pred = get_decision_ft_predictiveness(decision_response_counts, ratings["zoo animals"])
-    #decision_consid_ft_pred = get_decision_ft_predictiveness(decision_consideration_counts, ratings["zoo animals"])
+    decision_response_ft_pred = get_decision_ft_predictiveness(decision_response_counts, ratings["zoo animals"])
+    decision_consid_ft_pred = get_decision_ft_predictiveness(decision_consideration_counts, ratings["zoo animals"])
     #plot relationship between general feature predictiveness,
     #and feature predictiveness of responses in study 7
-    #plot_decision_ft_predictiveness(decision_response_ft_pred, True)
+    plot_decision_ft_predictiveness(decision_response_ft_pred, True)
 
     #plot relationship between general feature predictiveness,
     #and feature predictiveness of considerations in study 7
-    #plot_decision_ft_predictiveness(decision_consid_ft_pred, False)
+    plot_decision_ft_predictiveness(decision_consid_ft_pred, False)
 
     #plot relationship between feature predictiveness of responses
     #and general feature predictiveness for zoo animals
     #print correlation
-    #compare_ft_predictiveness(decision_response_ft_pred, ft_pred["zoo animals"], True)
+    compare_ft_predictiveness(decision_response_ft_pred, ft_pred["zoo animals"], True)
 
     #plot relationship between feature predictiveness of considerations
     #and general feature predictiveness for zoo animals
     #print correlation
-    #compare_ft_predictiveness(decision_consid_ft_pred, ft_pred["zoo animals"], False)
+    compare_ft_predictiveness(decision_consid_ft_pred, ft_pred["zoo animals"], False)
     
