@@ -6,9 +6,10 @@ import math
 from factor_analyzer import FactorAnalyzer
 from factor_analyzer.factor_analyzer import calculate_bartlett_sphericity
 from factor_analyzer.factor_analyzer import calculate_kmo
-
-
-data_loc = '../clean_data/'
+chart_studio.tools.set_credentials_file(username=USER, api_key=API_KEY)
+import chart_studio.plotly as py
+import plotly.graph_objects as go
+import pandas as pd
 
 #run factor analysis on each category
 def factor_analysis():
@@ -104,6 +105,8 @@ def get_intrusion_stats():
             print(fts[0][0] + ": " + str(round(fts[0][1],2)) + ", " + fts[1][0] + ": " + str(round(fts[1][1],2)))
 
 if __name__ == "__main__":
+    data_loc = '../clean_data/'
+    
     #print factor analysis over all features in a category
     factor_analysis()
 

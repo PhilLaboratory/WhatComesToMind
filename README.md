@@ -18,6 +18,7 @@ What Comes to Mind
       * ratings   
    * study5
    * study6
+   * study7
 * preprocessing
    * study4
 * clean_data
@@ -27,13 +28,14 @@ What Comes to Mind
    * study4
    * study5
    * study6
+   * study7
 * data_analysis
    * main_analysis
    * supplementary_analysis
 
 
 ## Mapping of studies in paper to file structure
-The project was comprised of 6 studies, denoted in this repo and in the manuscript as studies 1-6.
+The project was comprised of 7 studies, denoted in this repo and in the manuscript as studies 1-7.
 Study 4 is comprised of 3 components, denoted throughout the repo as _generation_, _comparisons_, and _ratings_:
 * _generation_ corresponds to the portion of the study in which participants freely generate category members
 * _comparisons_ corresponds to the portion of the study in which participants list similarities and differences between category members

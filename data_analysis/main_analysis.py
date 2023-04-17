@@ -5,63 +5,75 @@ import pandas as pd
 from pymer4.models import Lmer
 import pingouin as pg
 import math
+import chart_studio
+import chart_studio.plotly as py
+import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 from matplotlib import rcParams
 import matplotlib.patches as mpatches
 rcParams.update({'figure.autolayout': True})
 
-data_loc = '../clean_data/'
-
-
-#Plots histogram of category member response counts for each category
-#First plots all responses
-#Then labeled high and low frequency responses only
+"""
+Plots histogram of category member response counts for each category
+First plots all responses
+Then labeled high and low frequency responses only
+"""
 def plot_response_counts():
     c = 'blueviolet'
-
+    #get responses
+    with open(data_loc + 'study1/responses.json') as f:
+        trials = json.load(f)
     #get response counts
     with open(data_loc + 'study1/response_counts.json') as f:
         response_counts = json.load(f)
     
+
     #for all categories
     for cat, res_counts in response_counts.items():
+        n_participants = len([t for t in trials if t["category"]==cat])
+        if cat != "zoo animals":
+            continue
+        #total_count = sum(res_counts.values())
         #sort data
         data = sorted([i for i in res_counts.items() if i[1] > 0], key=lambda x: x[1], reverse=True)
     
         #plot all responses
         labels = [pair[0] for pair in data]
-        counts = [pair[1] for pair in data]
+        counts = [pair[1]/n_participants for pair in data]
         pos = range(len(labels))
         plt.bar(pos, counts, color=c)
         plt.xticks([])
         plt.title(cat.title(), fontweight='bold', fontsize=18)
-        plt.ylabel('Response Frequency', fontweight='bold', fontsize=16)
+        plt.ylabel('Response Probability', fontweight='bold', fontsize=16)
         plt.show()
 
 
         #plot just most and least frequent responses
         bottom_data = data[-10:]
         bottom_labels = [pair[0] for pair in bottom_data]
-        bottom_counts = [pair[1] for pair in bottom_data]
+        bottom_counts = [pair[1]/n_participants for pair in bottom_data]
         top_data = data[:10]
         top_labels = [pair[0] for pair in top_data]
-        top_counts = [pair[1] for pair in top_data]
+        top_counts = [pair[1]/n_participants for pair in top_data]
         labels = top_labels + ['','',''] + bottom_labels
         counts = top_counts + [0,0,0] + bottom_counts
 
         pos = range(len(labels))
         plt.bar(pos, counts, color=c)
-        plt.xticks(pos, labels=labels, rotation=50, fontsize=12)
+        plt.xticks(pos, labels=labels, rotation=50, fontsize=12, ha="right")
+        #for label in ax.xaxis.get_majorticklabels():
+        #    label.set_transform(label.get_transform() + 3)
         plt.title(cat.title(), fontweight='bold', fontsize=18)
-        plt.ylabel('Response Frequency', fontweight='bold', fontsize=16)
+        plt.ylabel('Response Probability', fontweight='bold', fontsize=16)
         plt.show()
 
-
-#Plots zoo animals in 3d portion of feature space
-#Colored according to log probability of coming to mind
-#Zoo animal locations determined by average subejct ratings
-def plot_ratings_3d():
+"""
+Plots zoo animals in 3d portion of feature space
+Colored according to log probability of coming to mind
+Zoo animal locations determined by average subejct ratings
+"""
+def plot_ratings_3d():    
     #average ratings
     with open(data_loc + 'study3/ratings.json') as f:
         ratings = json.load(f)["zoo animals"]
@@ -69,46 +81,51 @@ def plot_ratings_3d():
     with open(data_loc + 'study1/response_counts.json') as f:
         response_counts = json.load(f)["zoo animals"]
     
-    #selected feature dimensions 
-    dims = ['large', 'cute', 'dangerous']
-    
     #store zoo animals' location in feature space and log probability of coming to mind
     labels = [k for k in ratings['large'].keys() if response_counts[k] > 0]
-    d1,d2,d3,col=[],[],[],[]
+    data = {'large':[],'striking':[],'dangerous':[],'colors':[],'labels':[]}
     for l in labels:
-        d1.append(ratings[dims[0]][l])
-        d2.append(ratings[dims[1]][l])
-        d3.append(ratings[dims[2]][l])
-        col.append(math.log(response_counts[l]/sum(response_counts.values())))
-    
-    #set labels and plot details
-    fig = plt.figure()
-    ax = plt.axes(projection='3d')
-    ax.set_xlabel(dims[0], fontweight='bold', fontsize='14')
-    ax.set_ylabel(dims[1], fontweight='bold',fontsize='14')
-    ax.set_zlabel(dims[2], fontweight='bold',fontsize='14')
-    ax.set_zlim([1,5])
-    p = ax.scatter3D(d1, d2, d3, c=col, cmap=cm.cool)
-    ax.xaxis.pane.fill = False
-    ax.yaxis.pane.fill = False
-    ax.zaxis.pane.fill = False
-    plt.xlim([1,5])
-    plt.ylim([1,5])
-    plt.locator_params(axis="x", nbins=4)
-    plt.locator_params(axis="y", nbins=4)
-    plt.locator_params(axis="z", nbins=4)
-    plt.title("Zoo Animal Feature Space", fontweight='bold',fontsize='18')
-    fig.colorbar(p, shrink=0.5)
+        data['large'].append(ratings['large'][l])
+        data['strking'].append(ratings['striking'][l])
+        data['dangerous'].append(ratings['dangerous'][l])
+        data['colors'].append(math.log(response_counts[l]/sum(response_counts.values())))
+        data['labels'].append(l)
 
-    #label a few zoo animals
-    for i, an in enumerate(labels):
-        if an in ['lion', 'elephant', 'penguin', 'snake', 'goat']:
-            ax.text(d1[i], d2[i], d3[i], an, fontsize=12)
+    df = pd.DataFrame.from_dict(data)
+    trace = go.Scatter3d(x = df["large"],
+                         y = df["striking"],
+                         z = df["dangerous"],
+                         mode ='markers',
+                         text = df["labels"],
+                         marker = dict(
+                            color = df['colors'],
+                            size = 8,
+                            opacity = 0.9,
+                            colorscale='Inferno',
+                            colorbar=dict(thickness=20)
+                         )
+    )
 
-    plt.show()   
+    fig = go.Figure(data=trace)
+    fig.update_layout(
+        title=dict(
+            text="Zoo Animal Feature Space",
+            x=0.5,
+            xanchor= 'center'
+        ),
+        scene = dict(
+            xaxis = dict(nticks=5, range = [1,5], title="large",),
+            yaxis = dict(nticks=5, range = [1,5], title="striking",),
+            zaxis = dict(nticks=5, range = [1,5], title="dangerous",),
+            aspectmode='cube'
+        )
+    )
+    fig.show()
 
 
-#For each category, plots each feature's relevance for that category
+"""
+For each category, plots each feature's relevance for that category
+"""
 def plot_ft_relevance():
     c = 'blueviolet'
     #get feature relevance
@@ -139,17 +156,26 @@ def plot_ft_relevance():
         plt.ylabel('Feature Relevance', fontweight='bold', fontsize=18)
         plt.show()
 
-
-#Takes dictionary with each features' predictiveness of what comes to mind in each category
-#Plots scatter plot of feature predictiveness of what comes to mind, and feature relevance
-    #Within each category
-    #And across categories
-#And prints correlations between feature predictiveness and relevance
+"""
+Takes dictionary with each features' predictiveness of what comes to mind in each category
+Plots scatter plot of feature predictiveness of what comes to mind, and feature relevance
+    Within each category
+    And across categories
+And prints correlations between feature predictiveness and relevance
+"""
 def plot_ft_predicteveness_vs_relevance(ft_pred):
     c='blueviolet'
     #get feature relevance
     with open(data_loc + 'study6/feature_relevance.json') as f:
         ft_relevance = json.load(f)
+
+    for cat in ft_relevance.keys():
+        print(cat)
+        print(np.var(list(ft_relevance[cat].values())))
+        print(np.var(list(ft_pred[cat].values())))
+        print("-"*30)
+
+
     all_pred, all_rel = [], []
     #plot each category individually
     cat_colors = {'zoo animals': 'blue', 'chain restaurants': 'orange', 'vegetables': 'green', 'sports': 'pink', 'kitchen appliances': 'red', 'jobs': 'purple', 'holidays': 'yellow'}
@@ -212,12 +238,13 @@ def plot_ft_predicteveness_vs_relevance(ft_pred):
     r,p = stats.pearsonr(all_rel, all_pred)
     print("overall: r=" + str(r) + ", p=" + str(p))
 
-
-#Takes response counts for category members in each category
-#And ratings for each category member for each feature in each category
-#Returns, for each category, each feature's predictiveness of what comes to mind
-    #As calculated by correlation between each category member's average rating for that feature
-    #And category member's frequency of coming to mind in study 1
+"""
+Takes response counts for category members in each category
+And ratings for each category member for each feature in each category
+Returns, for each category, each feature's predictiveness of what comes to mind
+    As calculated by correlation between each category member's average rating for that feature
+    And category member's frequency of coming to mind in study 1
+"""
 def get_ft_predictiveness(response_counts, ratings):
     ft_pred = {}
     #go thru each category
@@ -238,9 +265,29 @@ def get_ft_predictiveness(response_counts, ratings):
     return ft_pred  
 
 
-#Takes dictionary with each features' predictiveness of what comes to mind in each category
-#For each category in keys, plots each feature's predictiveness of what comes to mind in that category
-#Features negatively correlated with likelihood of coming to mind plotted in red
+def get_decision_ft_predictiveness(response_counts, ratings):
+    ft_pred = {}
+    for ft, ft_dict in ratings.items():
+        count_list = []
+        rating_list = []
+        for it, c in response_counts.items():
+            if it in ft_dict.keys():
+                count_list.append(c)
+                rating_list.append(ft_dict[it])
+        for it, r in ft_dict.items():
+            #record response counts of 0
+            if it not in response_counts.keys():
+                count_list.append(0)
+                rating_list.append(r)
+        ft_pred[ft] = stats.pearsonr(count_list,rating_list)[0]
+    return ft_pred
+
+
+"""
+Takes dictionary with each features' predictiveness of what comes to mind in each category
+For each category in keys, plots each feature's predictiveness of what comes to mind in that category
+Features negatively correlated with likelihood of coming to mind plotted in red
+"""
 def plot_ft_predictiveness(ft_pred):
     #in each category, plot predictiveness of each feature
     for cat in ft_pred.keys():
@@ -265,25 +312,34 @@ def plot_ft_predictiveness(ft_pred):
             labels[i] = l
         
         #color bars by sign of correlation
+        hatches=[]
         colors = []
         for pair in data:
             if pair[1] > 0:
                 colors.append('blue')
             else:
                 colors.append('red')
+            if pair[0] in ["typical", "good"]:
+                hatches.append("//")
+            else:
+                hatches.append("")
         
-        #set labels and plot
+        #set labels and plot 
         pos = range(len(labels))
         plt.bar(pos, counts, color=colors)
-        plt.legend(['positive','negative'], fontsize=12)
-        plt.xticks(pos, labels, rotation=60, fontsize=12)
+        blue_patch = mpatches.Patch(color='blue', label='positive')
+        red_patch = mpatches.Patch(color='red', label='negative')
+        plt.legend(handles=[blue_patch, red_patch], fontsize=14)
+        #plt.legend(['negative', ''], fontsize=12)
+        plt.xticks(pos, labels, rotation=60, fontsize=12, ha="right")
         plt.title(cat.title(), fontweight='bold', fontsize=24)
-        plt.ylabel('Predictiveness of What Comes to Mind', fontweight='bold', fontsize=16)
+        plt.ylabel('Strength of Predictiveness of What Comes to Mind', fontweight='bold', fontsize=16)
         plt.show()
 
-
-#Runs generalized linear mixed effects regression on intrusion data across categories
-#Prints model fit details
+"""
+Runs generalized linear mixed effects regression on intrusion data across categories
+Prints model fit details
+"""
 def run_intrusions_lmer():
     with open(data_loc + 'study5/responses.json') as f:
         data = json.load(f)
@@ -304,11 +360,14 @@ def run_intrusions_lmer():
     #fit model and print results
     model = Lmer('intrusion ~ predictive + category + (1|subject) + (predictive|feature_dimension)', data=my_data, family = 'binomial')
     print(model.fit())
+    model = Lmer('intrusion ~ predictive + (1|category) + (1|subject) + (predictive|feature_dimension)', data=my_data, family = 'binomial')
+    print(model.fit())
     print("overall prob of intrusions for predictive features:", np.mean([intrusion[i] for i in range(len(intrusion)) if predictive[i]]))
     print("overall prob of intrusions for non predictive features:", np.mean([intrusion[i] for i in range(len(intrusion)) if not predictive[i]]))
 
-
-#For each category, plots intrusion probability for both ends of each feature dimension
+"""
+For each category, plots intrusion probability for both ends of each feature dimension
+"""
 def plot_intrusions():
     with open(data_loc + 'study5/responses.json') as f:
         data = json.load(f)
@@ -367,23 +426,113 @@ def plot_intrusions():
         plt.legend(loc='upper left')
         plt.show()
 
+def plot_decision_ft_predictiveness(ft_pred, is_response):
+    data = sorted(ft_pred.items(), key=lambda x: abs(x[1]), reverse=True) 
+    #store predictiveness of each feature
+    counts = [abs(pair[1]) for pair in data]
 
-#Runs all analyses by default
+    #shorten and store ft names as labels
+    labels = [pair[0] for pair in data]
+    for i in range(len(labels)):
+        l = labels[i]
+        if ", " in l:
+            l = l.split(", ")[1]
+        if l == "has good hearing":
+            l="good hearing"
+        if l == "has large feet relative to its body size":
+            l="large feet"
+        if l == "has long hair":
+            l = "long hair"
+        labels[i] = l
+    #color bars by sign of correlation
+    colors = []
+    for pair in data:
+        if pair[1] > 0:
+            colors.append('blue')
+        else:
+            colors.append('red')
+    #set labels and plot
+    pos = range(len(labels))
+    plt.bar(pos, counts, color=colors)
+    blue_patch = mpatches.Patch(color='blue', label='positive')
+    red_patch = mpatches.Patch(color='red', label='negative')
+    plt.legend(handles=[blue_patch, red_patch], fontsize=14)
+    plt.xticks(pos, labels, rotation=60, fontsize=11, ha="right")
+    #plt.title("zoo animals", fontweight='bold', fontsize=24)
+    if is_response:
+        plt.ylabel('Strength of Predictiveness of Response Probability', fontweight='bold', fontsize=14)
+    else:
+        plt.ylabel('Strength of Predictiveness of Consideration Probability', fontweight='bold', fontsize=14)
+    plt.show()
+
+
+def compare_ft_predictiveness(ft_pred1, ft_pred2, is_response):
+    c1 = []
+    c2 = []
+    labels = [] 
+    for ft, c in ft_pred1.items():
+        c1.append(c)
+        c2.append(ft_pred2[ft])
+        labels.append(ft)
+    fig = plt.figure()
+    ax = plt.axes()
+    if is_response:
+        ax.set_xlabel('Predictiveness of Response Probability', fontweight="bold",fontsize=13)
+    else:
+        ax.set_xlabel('Predictiveness of Consideration Probability', fontweight="bold",fontsize=13)
+    ax.set_ylabel('Predictiveness of Instance Generation Probability', fontweight="bold",fontsize=13)
+    for i,l in enumerate(labels):
+        #set label text
+        if ", " in l:
+            l = l.split(", ")[1]
+        if l == "has good hearing":
+            l="good hearing"
+        if l == "has large feet relative to its body size":
+            l="large feet"
+        if l == "has long hair":
+            l = "long hair"
+        labels[i] = l
+        #set label position
+        if is_response:
+            if l in ["fish", "think", "nocturnal", "large feet"]:
+                ax.text(c1[i], c2[i]-0.015, ' ' + l, fontsize=10)
+            else:
+                ax.text(c1[i], c2[i], ' ' + l, fontsize=10)
+        else:
+            if l in ["carnivore", "desert", "diurnal", "think", "invertibrate", "nocturnal", "fish", "cute"]:
+                ax.text(c1[i], c2[i]-0.015, ' ' + l, fontsize=10)
+            else:
+                ax.text(c1[i], c2[i], ' ' + l, fontsize=10)
+
+    c="blueviolet"
+    plt.scatter(c1, c2, color=c)
+    m, b = np.polyfit(c1, c2, 1)
+    c1 = np.array(c1)
+    #add linear regression line to scatterplot 
+    plt.plot(c1, m*c1+b, color=c)
+    plt.show()
+    print(stats.pearsonr(c1,c2))
+
+"""
+Runs all analyses by default
+"""
 if __name__ == "__main__":  
+    data_loc = '../clean_data/'
+
     #plot response counts for each category
-    plot_response_counts()
+    #plot_response_counts()
     
     #plot zoo animals in 3d portion of feature space
-    plot_ratings_3d()
-    
+    #plot_ratings_3d()
+
     #plot each feature's predictiveness of coming to mind
     with open(data_loc + 'study1/response_counts.json') as f:
         response_counts = json.load(f)
     with open(data_loc + 'study3/ratings.json') as f:
         ratings = json.load(f)
     ft_pred = get_ft_predictiveness(response_counts, ratings)
-    plot_ft_predictiveness(ft_pred)
-    
+    #plot_ft_predictiveness(ft_pred)
+    """
     #plot feature predictiveness in ad hoc categories
     with open(data_loc + 'study4/generation_response_counts.json') as f:
         response_counts = json.load(f)
@@ -400,5 +549,33 @@ if __name__ == "__main__":
     plot_ft_relevance()
     
     #plot relationship between feature predictiveness and feature relevance
-    #also prints pearson correlation coefficient and p value
+    #and print correlation details
+    """
     plot_ft_predicteveness_vs_relevance(ft_pred)
+    
+
+    #get feature predictiveness for decision making consideration probability and response probability
+    with open(data_loc + 'study7/response_counts.json') as f:
+        decision_response_counts = json.load(f)
+    with open(data_loc + 'study7/consideration_counts.json') as f:
+        decision_consideration_counts = json.load(f)
+    #decision_response_ft_pred = get_decision_ft_predictiveness(decision_response_counts, ratings["zoo animals"])
+    #decision_consid_ft_pred = get_decision_ft_predictiveness(decision_consideration_counts, ratings["zoo animals"])
+    #plot relationship between general feature predictiveness,
+    #and feature predictiveness of responses in study 7
+    #plot_decision_ft_predictiveness(decision_response_ft_pred, True)
+
+    #plot relationship between general feature predictiveness,
+    #and feature predictiveness of considerations in study 7
+    #plot_decision_ft_predictiveness(decision_consid_ft_pred, False)
+
+    #plot relationship between feature predictiveness of responses
+    #and general feature predictiveness for zoo animals
+    #print correlation
+    #compare_ft_predictiveness(decision_response_ft_pred, ft_pred["zoo animals"], True)
+
+    #plot relationship between feature predictiveness of considerations
+    #and general feature predictiveness for zoo animals
+    #print correlation
+    #compare_ft_predictiveness(decision_consid_ft_pred, ft_pred["zoo animals"], False)
+    

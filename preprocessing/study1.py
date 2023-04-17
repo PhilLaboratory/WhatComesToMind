@@ -265,6 +265,7 @@ def get_clean_data(data):
         clean_trial = {}
         clean_trial["subject_id"] = trial["subject_id"]
         clean_trial["category"] = trial["category"]
+        clean_trial["rt"] = trial["rt"]
         clean_responses = []
         #process each response given on this trial
         for i in range(10):

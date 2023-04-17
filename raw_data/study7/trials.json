@@ -1,0 +1,1802 @@
+[
+    {
+        "answer": "penguins",
+        "answer_rt": "15412.199999999255",
+        "considerations": [
+            "giraffe",
+            "zebra",
+            "bison",
+            "elephant",
+            "penguin",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "30032.60000000149",
+        "info": "I wanted to choose a smaller animal that wouldn't scare the children but that would still be fun to look at",
+        "info_rt": "23744.39999999851",
+        "subject_id": 0
+    },
+    {
+        "answer": "otters",
+        "answer_rt": "11626",
+        "considerations": [
+            "tigers",
+            "giraffe",
+            "otters",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "57340",
+        "info": "I'm not really sure what to write. I guess I thought about the last time I went to the zoo and how it was fun to watch the otters, and how they couldn't really be scary to kids, I don't think, like tigers might be or something.",
+        "info_rt": "38099",
+        "subject_id": 1
+    },
+    {
+        "answer": "penguin",
+        "answer_rt": "16712.000000000004",
+        "considerations": [
+            "elephant",
+            "giraffe",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "39957.000000000015",
+        "info": "What animals the children want to see and if they are scared of any particular animal",
+        "info_rt": "73496",
+        "subject_id": 2
+    },
+    {
+        "answer": "Parrots",
+        "answer_rt": "24522.199999999255",
+        "considerations": [
+            "Monkey",
+            "Giraffe",
+            "Parrot",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "91004.69999999925",
+        "info": "Size of animals and likelihood of a child enjoying the animal. ",
+        "info_rt": "44630.90000000037",
+        "subject_id": 3
+    },
+    {
+        "answer": "pandas",
+        "answer_rt": "11892.80000000028",
+        "considerations": [
+            "lions",
+            "elephants",
+            "tigers",
+            "hippos",
+            "rhinos",
+            "orangutans",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "63867.299999999814",
+        "info": "Pandas are cute, and not common to see so children might like those.",
+        "info_rt": "30424.299999999814",
+        "subject_id": 4
+    },
+    {
+        "answer": "Monkey.",
+        "answer_rt": "35867.299999952316",
+        "considerations": [
+            "Penguin",
+            "Sloth",
+            "Mir cat ",
+            "Goat",
+            "N/A",
+            "N/A",
+            "N/A",
+            "N/A"
+        ],
+        "considerations_rt": "92714.19999998808",
+        "info": "I was thinking what animal would be fun to go see. Monkey's seem to be usually jumping around having fun. I couldn't think of any other animal that's very active in a zoo. Most animals are laying around not doing anything.",
+        "info_rt": "125641.69999998808",
+        "subject_id": 5
+    },
+    {
+        "answer": "Giraffes",
+        "answer_rt": "24940.000000000007",
+        "considerations": [
+            "Giraffe",
+            "Elephant",
+            "Monkeys",
+            "Lizards",
+            "Pandas",
+            "Tiger",
+            "Cheeta",
+            "N/A"
+        ],
+        "considerations_rt": "43858.000000000015",
+        "info": "I thought about which ones the children would recognize the easiest and have the most fun with. Even being afraid of the bigger animals, at least with the giraffes they can feed them and see them from a distance without being close. The kids will also immediately recognize them and hopefully be enthusiastic about them ",
+        "info_rt": "98601.99999999999",
+        "subject_id": 6
+    },
+    {
+        "answer": "I would take them to see the turtles",
+        "answer_rt": "42973",
+        "considerations": [
+            "camels",
+            "turtles",
+            "monkeys",
+            "red panda",
+            "artic fox",
+            "lion",
+            "snakes",
+            "bat"
+        ],
+        "considerations_rt": "30039.700000047684",
+        "info": "The children may be afraid of snakes or fast moving animals as well, and the turtle seemed the safest.",
+        "info_rt": "27580.100000023842",
+        "subject_id": 7
+    },
+    {
+        "answer": "Penguins",
+        "answer_rt": "22975",
+        "considerations": [
+            "Hippo",
+            "Elephant",
+            "Tiger",
+            "Cheetah",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "40349",
+        "info": "The most important in a situation like this is how big the animal is since the kids are scared of larger ones and also how far they are from the entrance.  The distance matters since its closing soon.",
+        "info_rt": "55832",
+        "subject_id": 9
+    },
+    {
+        "answer": "Koalas",
+        "answer_rt": "8265.79999999702",
+        "considerations": [
+            "Lion",
+            "Koala",
+            "n/a",
+            "n/an",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "12214",
+        "info": "The children's vulnerability",
+        "info_rt": "9062.89999999851",
+        "subject_id": 8
+    },
+    {
+        "answer": "monkeys",
+        "answer_rt": "14266",
+        "considerations": [
+            "giraffe",
+            "monkey",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "24785.000000000007",
+        "info": "size of the animal",
+        "info_rt": "8638",
+        "subject_id": 10
+    },
+    {
+        "answer": "Koala Bear",
+        "answer_rt": "32255.600000023842",
+        "considerations": [
+            "Sloth",
+            "Koala Bear",
+            "Racoon",
+            "Monkey",
+            "Elephant",
+            "NA",
+            "NA",
+            "NA"
+        ],
+        "considerations_rt": "60166.5",
+        "info": "That the children may be scared of larger animals.",
+        "info_rt": "23014.600000023842",
+        "subject_id": 11
+    },
+    {
+        "answer": "Otters",
+        "answer_rt": "19925",
+        "considerations": [
+            "Penguins",
+            "Birds",
+            "Monkeys",
+            "Fish",
+            "n/a",
+            "n/a",
+            "n/a",
+            "Otters"
+        ],
+        "considerations_rt": "53542",
+        "info": "Some animals are held in close proximity to each other, or sometimes even in the same enclosure, so some of these options may not be so good depending on the zoo's layout.",
+        "info_rt": "42132",
+        "subject_id": 12
+    },
+    {
+        "answer": "Penguins",
+        "answer_rt": "50184.20000000298",
+        "considerations": [
+            "Giraffes",
+            "Bears",
+            "Elephants",
+            "Monkeys",
+            "Flamingos",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "55313.10000000149",
+        "info": "It can't be large animals and it would only be one. For kids, it would have to be a animal that looks fun. ",
+        "info_rt": "59979",
+        "subject_id": 14
+    },
+    {
+        "answer": "Penguins",
+        "answer_rt": "12294.600000143051",
+        "considerations": [
+            "Panda",
+            "Elephants",
+            "Tigers",
+            "Monkeys",
+            "Reptiles",
+            "na",
+            "na",
+            "na"
+        ],
+        "considerations_rt": "19944.400000095367",
+        "info": "That the children are scared of bigger animals, and we only have time to see one animal. \n",
+        "info_rt": "17677.299999952316",
+        "subject_id": 13
+    },
+    {
+        "answer": "panda",
+        "answer_rt": "6452.20000000298",
+        "considerations": [
+            "panda",
+            "giraffe",
+            "lion",
+            "snake",
+            "bear",
+            "koala",
+            "tiger",
+            "monkey"
+        ],
+        "considerations_rt": "41422.29999999702",
+        "info": "how popular or rare the animal is, the size of the animal, picture opportunities",
+        "info_rt": "14104.79999999702",
+        "subject_id": 15
+    },
+    {
+        "answer": "Lion",
+        "answer_rt": "12451",
+        "considerations": [
+            "Monkey",
+            "Turkey",
+            "Penguin",
+            "Snake",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "27209.799999999814",
+        "info": "What animal is the easiest to get to with their short amount of time.",
+        "info_rt": "31026.60000000056",
+        "subject_id": 16
+    },
+    {
+        "answer": "monkeys",
+        "answer_rt": "15197.79999999702",
+        "considerations": [
+            "tiger",
+            "lion",
+            "elephant ",
+            "giraffe",
+            "rhino",
+            "monkey",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "50815",
+        "info": "The information I used to decide on what animal to pick was that the children are afraid of larger animals. ",
+        "info_rt": "34291.89999999851",
+        "subject_id": 17
+    },
+    {
+        "answer": "penguins",
+        "answer_rt": "10440.19999999553",
+        "considerations": [
+            "giraffe",
+            "zebras",
+            "lions",
+            "elephants",
+            "hippo",
+            "crocodile",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "32165",
+        "info": "that kids are scared of larger animals",
+        "info_rt": "19022.29999999702",
+        "subject_id": 18
+    },
+    {
+        "answer": "Seals",
+        "answer_rt": "22760.70000000298",
+        "considerations": [
+            "Giraffes",
+            "Elephants",
+            "Snakes",
+            "Pandas",
+            "Seals",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "46925",
+        "info": "There are possibly children that are afraid of larger animals so there has to be some distance between the children and animals. However, the exhibit should also be an easy exhibit for the children to watch. ",
+        "info_rt": "103077.69999999553",
+        "subject_id": 19
+    },
+    {
+        "answer": "seals",
+        "answer_rt": "27478.400000095367",
+        "considerations": [
+            "elephant",
+            "monkey",
+            "wild boar",
+            "ducks",
+            "birds",
+            "na",
+            "na",
+            "na"
+        ],
+        "considerations_rt": "68399.40000009537",
+        "info": "Short time frame, small animals preferred, easy to get to.",
+        "info_rt": "45447.800000190735",
+        "subject_id": 21
+    },
+    {
+        "answer": "Red Panda",
+        "answer_rt": "67001.09999990463",
+        "considerations": [
+            "lion",
+            "tiger",
+            "giraffe",
+            "cheetah",
+            "Ostrich",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "25159.5",
+        "info": "You should take into account the size of the animal and whether or not the kids may think that it's cute. I think Red Pandas fit into that category since they're small and they're usually very cute.",
+        "info_rt": "61938.59999990463",
+        "subject_id": 20
+    },
+    {
+        "answer": "monkeys",
+        "answer_rt": "10240",
+        "considerations": [
+            "giraffe",
+            "lion",
+            "zebra",
+            "birds",
+            "monkeys",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "36800.00000000001",
+        "info": "The kids only have time to see one animal and they don't like big animals. ",
+        "info_rt": "19099",
+        "subject_id": 22
+    },
+    {
+        "answer": "monkey",
+        "answer_rt": "22371.29999999702",
+        "considerations": [
+            "elephant",
+            "lion",
+            "seal",
+            "giraffe",
+            "tiger",
+            "snake",
+            "bird",
+            "rhino"
+        ],
+        "considerations_rt": "53106.69999999553",
+        "info": "consider all animals and the one that would be most entertaining",
+        "info_rt": "34429.79999999702",
+        "subject_id": 23
+    },
+    {
+        "answer": "The penguins",
+        "answer_rt": "19466.10000038147",
+        "considerations": [
+            "Giraffe",
+            "Penguin",
+            "Petting zoo",
+            "Shark",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "78425.39999961853",
+        "info": "Penguins are cute, smart and non threatening. For young kids more bang for the buck.",
+        "info_rt": "38409.30000114441",
+        "subject_id": 24
+    },
+    {
+        "answer": "the fish",
+        "answer_rt": "14371.200000047684",
+        "considerations": [
+            "tiger",
+            "gorilla",
+            "n/a",
+            "na",
+            "na",
+            "na",
+            "na",
+            "na"
+        ],
+        "considerations_rt": "38418.10000014305",
+        "info": "What animal is the most interesting, the least scary, and has the most variety for a short time period",
+        "info_rt": "40151.40000009537",
+        "subject_id": 26
+    },
+    {
+        "answer": "otters",
+        "answer_rt": "18962.70000000298",
+        "considerations": [
+            "elephant",
+            "girafe",
+            "lion",
+            "tiger",
+            "hippopotamus",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "35417.5",
+        "info": "otters are quick and funny also they are not big and live in the water so they are separated by a glass",
+        "info_rt": "31311",
+        "subject_id": 25
+    },
+    {
+        "answer": "pandas",
+        "answer_rt": "9255.5",
+        "considerations": [
+            "elephant",
+            "tiger",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "21602.699999999255",
+        "info": "not just size but also the behavior of the animals. pandas are derpy messes, versus like, snakes are creepy, birds can be loud, etc.",
+        "info_rt": "37689.800000000745",
+        "subject_id": 27
+    },
+    {
+        "answer": "penguins",
+        "answer_rt": "28205",
+        "considerations": [
+            "penguin",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "18926",
+        "info": "- If its cute\n- If everyone will like it\n- If they can interact with it\n- If people get scared of it\n- if they're actually out",
+        "info_rt": "31705",
+        "subject_id": 28
+    },
+    {
+        "answer": "Monkey",
+        "answer_rt": "22074",
+        "considerations": [
+            "Elephant",
+            "Monkey",
+            "N/A",
+            "NA",
+            "NA",
+            "NA",
+            "NA",
+            "NA"
+        ],
+        "considerations_rt": "54718.89999999851",
+        "info": "I asked myself which animal would the kids most enjoy seeing.  Monkeys immediately came to mind. ",
+        "info_rt": "78324.79999999702",
+        "subject_id": 29
+    },
+    {
+        "answer": "monkey",
+        "answer_rt": "18493",
+        "considerations": [
+            "na",
+            "na",
+            "na",
+            "na",
+            "na",
+            "na",
+            "na",
+            "na"
+        ],
+        "considerations_rt": "33934",
+        "info": "The mirror exhibits the hidden animal.",
+        "info_rt": "48451",
+        "subject_id": 31
+    },
+    {
+        "answer": "otters",
+        "answer_rt": "22133",
+        "considerations": [
+            "kangaroo",
+            "red panda",
+            "penguin",
+            "giraffe",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "52841",
+        "info": "How much fun it would be to see the animal (slow sleepy animal versus energetic one)",
+        "info_rt": "41746",
+        "subject_id": 30
+    },
+    {
+        "answer": "Fish",
+        "answer_rt": "41636",
+        "considerations": [
+            "Monkey's",
+            "Flamingos ",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "54803.40000000596",
+        "info": "I realized my options may have been scary to take children to see. ",
+        "info_rt": "51685.59999999404",
+        "subject_id": 32
+    },
+    {
+        "answer": "aquarium",
+        "answer_rt": "26906.900000095367",
+        "considerations": [
+            "elephant",
+            "monkies",
+            "birds",
+            "reptiles",
+            "pandas",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "26050.5",
+        "info": "I would take them to see the elephants if they weren't scared of large animals. I wanted to get the most out of their visit and I think that the fish/reptile exhibits give you more for your time than other animals. ",
+        "info_rt": "60675.699999809265",
+        "subject_id": 33
+    },
+    {
+        "answer": "Panda",
+        "answer_rt": "17259.799999998882",
+        "considerations": [
+            "Panda",
+            "Lion",
+            "Giraffe",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "25816.5",
+        "info": "Small animal, fun animal kids would like. Not threatening or intimidating. ",
+        "info_rt": "22674.60000000149",
+        "subject_id": 34
+    },
+    {
+        "answer": "MONKEY",
+        "answer_rt": "23031.200000000186",
+        "considerations": [
+            "PEACOCK",
+            "GROUNDHOG",
+            "PRAIRIE DOGS",
+            "SNAKES",
+            "DONKEY",
+            "POLAR BEARS",
+            "GIRAFFE",
+            "ELEPHANT"
+        ],
+        "considerations_rt": "76505",
+        "info": "I thought which smaller animal they might enjoy the most and everyone loves to watch the monkeys",
+        "info_rt": "35888.59999999963",
+        "subject_id": 35
+    },
+    {
+        "answer": "pandas",
+        "answer_rt": "18409.399999999907",
+        "considerations": [
+            "zebra",
+            "lion",
+            "tiger",
+            "giraffe",
+            "pandas",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "24966.600000000093",
+        "info": "The kids won't like the large animals and we only have time to see one animal. Pandas are adorable so the kids will probably like them",
+        "info_rt": "23117.90000000014",
+        "subject_id": 36
+    },
+    {
+        "answer": "otters",
+        "answer_rt": "24029",
+        "considerations": [
+            "otters",
+            "penguins",
+            "big cats",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "50900",
+        "info": "what the kids will enjoy the most in short time and not be scared of. also generally how close the animal is to you and how easy it is to get to. how entertaining the animal would be (ie. pick one that's likely to be moving around at any given time)",
+        "info_rt": "87397",
+        "subject_id": 37
+    },
+    {
+        "answer": "meerkats",
+        "answer_rt": "20971.099999904633",
+        "considerations": [
+            "giraffe",
+            "rhino",
+            "lizards",
+            "meerkat",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "24206.5",
+        "info": "I thought about what would be exciting to see first, then went down the list of smaller animals.",
+        "info_rt": "13901.900000095367",
+        "subject_id": 38
+    },
+    {
+        "answer": "Zebra",
+        "answer_rt": "32134.90000000596",
+        "considerations": [
+            "Giraffe",
+            "Monkey",
+            "Lion",
+            "Jaguar",
+            "Koala",
+            "Elephant",
+            "Kangaroo",
+            "Crocodile"
+        ],
+        "considerations_rt": "43930.09999999404",
+        "info": "That the children are scared of big animals, so probably something more docile and recognizable would be best for them. ",
+        "info_rt": "38625",
+        "subject_id": 39
+    },
+    {
+        "answer": "Penguin",
+        "answer_rt": "9062.199999988079",
+        "considerations": [
+            "Lion",
+            "Elephant",
+            "Monkey",
+            "Parrot",
+            "Penguin",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "28854",
+        "info": "Smaller animals, universally liked animals, animals that are not too loud.",
+        "info_rt": "28772.200000047684",
+        "subject_id": 40
+    },
+    {
+        "answer": "Penguins",
+        "answer_rt": "11824.59999999404",
+        "considerations": [
+            "Lion",
+            "Snake",
+            "Elephant",
+            "Gorilla",
+            "Penguin",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "36933.29999998212",
+        "info": "I thought about my own experiences at zoos and what animals I remember seeing",
+        "info_rt": "14436",
+        "subject_id": 41
+    },
+    {
+        "answer": "Rabbit",
+        "answer_rt": "34616.10000000149",
+        "considerations": [
+            "Monkey",
+            "Squirrel",
+            "Turtle",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "64282.199999999255",
+        "info": "The safety of the children around the specific animal should be the top priority.",
+        "info_rt": "52569.300000000745",
+        "subject_id": 42
+    },
+    {
+        "answer": "Monkey's",
+        "answer_rt": "16274.000000000004",
+        "considerations": [
+            "Lion",
+            "Zebra",
+            "Tiger",
+            "Koala",
+            "Monkey",
+            "Elephant",
+            "crocodile",
+            "bear"
+        ],
+        "considerations_rt": "32213",
+        "info": "The fact that they don't like big animals and might be scared of the more dangerous animals. ",
+        "info_rt": "20673",
+        "subject_id": 43
+    },
+    {
+        "answer": "monkey",
+        "answer_rt": "8382.60000000149",
+        "considerations": [
+            "lion",
+            "giraffe",
+            "zebra",
+            "bird",
+            "gorilla",
+            "elephant",
+            "tiger",
+            "snake"
+        ],
+        "considerations_rt": "52169.89999999851",
+        "info": "Which would be more interesting",
+        "info_rt": "26656.29999999702",
+        "subject_id": 44
+    },
+    {
+        "answer": "Koala",
+        "answer_rt": "38308.09999990463",
+        "considerations": [
+            "Lion",
+            "Tiger",
+            "Bear",
+            "Monkey",
+            "Leopard",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "24216.400000095367",
+        "info": "I just tried to think of small zoo animals",
+        "info_rt": "12056.300000190735",
+        "subject_id": 45
+    },
+    {
+        "answer": "Seal",
+        "answer_rt": "11863.5",
+        "considerations": [
+            "lion",
+            "hippo",
+            "seal",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "22617.300000000745",
+        "info": "I first thought about popular zoo animals. Then I realized that I needed to think of an animal that would be cool/unusual but not too big and scary. I thought that lions could be scary, and hippos might be scary because I'm pretty sure their jaws are big and they can chomp a lot. I decided on a seal because seals are fun, can do tricks, and can swim.",
+        "info_rt": "63184.70000000112",
+        "subject_id": 46
+    },
+    {
+        "answer": "Monkeys",
+        "answer_rt": "12254.90000000596",
+        "considerations": [
+            "Elephant",
+            "Tigers",
+            "Polar Bears",
+            "Fish",
+            "Zebras",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "22893.29999999702",
+        "info": "The entertainment value of the chosen animal to a group of children vs. how afraid of them they might be.",
+        "info_rt": "21951.70000000298",
+        "subject_id": 47
+    },
+    {
+        "answer": "Meerkats",
+        "answer_rt": "29646.69999998808",
+        "considerations": [
+            "Monkeys",
+            "Alligators",
+            "Elephants",
+            "Meerkats",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "41682.89999997616",
+        "info": "Because I wanted to be mindful of the children and that they were scared of large animals, I realized they would probably be scared of off-putting animal behaviors , too, so I chose a small animals whose behavior wouldn't be that scary.",
+        "info_rt": "64548.20000001788",
+        "subject_id": 48
+    },
+    {
+        "answer": "Prairie dogs",
+        "answer_rt": "29790",
+        "considerations": [
+            "elephants",
+            "giraffes",
+            "hippos",
+            "meer cats",
+            "tigers",
+            "lions",
+            "seals",
+            "alligators "
+        ],
+        "considerations_rt": "89261",
+        "info": "How much fun the kids would have seeing the animals that I choose.  I also considered how it was important to keep them feeling safe and secure.",
+        "info_rt": "58597",
+        "subject_id": 49
+    },
+    {
+        "answer": "monkeys",
+        "answer_rt": "17045.100000023842",
+        "considerations": [
+            "zebra",
+            "turtles",
+            "rhino",
+            "bears",
+            "monkeys",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "52018.39999997616",
+        "info": "the children being entertained the most and not frightened",
+        "info_rt": "30952.200000047684",
+        "subject_id": 53
+    },
+    {
+        "answer": "Penguins",
+        "answer_rt": "17099.700000286102",
+        "considerations": [
+            "lions",
+            "elephant",
+            "monkeys",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "32535.5",
+        "info": "the children are scared of large animals. ",
+        "info_rt": "15795.400000095367",
+        "subject_id": 50
+    },
+    {
+        "answer": "birds",
+        "answer_rt": "18309.300000000745",
+        "considerations": [
+            "crocodile",
+            "zebra",
+            "snakes",
+            "owl",
+            "monkey",
+            "big cats",
+            "elephant",
+            "hippo"
+        ],
+        "considerations_rt": "34152.39999999851",
+        "info": "I think it should be a memorable experience.",
+        "info_rt": "20962.400000000373",
+        "subject_id": 51
+    },
+    {
+        "answer": "I'd take them to the bird exhibit",
+        "answer_rt": "91265.29999995232",
+        "considerations": [
+            "Tiger",
+            "Gorilla",
+            "Cheetah",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "42928.89999985695",
+        "info": "I would want to get the most enjoyment for everyone in the situation",
+        "info_rt": "36393",
+        "subject_id": 52
+    },
+    {
+        "answer": "giraffe",
+        "answer_rt": "7371.799999952316",
+        "considerations": [
+            "giraffe",
+            "lion",
+            "tiger",
+            "bear",
+            "penguin",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "23833.200000047684",
+        "info": "I would consider an animal that is unique, engaging for the children to see, and one that won't traumatize them or make loud noises that might cause scares.",
+        "info_rt": "33131.39999997616",
+        "subject_id": 54
+    },
+    {
+        "answer": "monkeys",
+        "answer_rt": "26115.5",
+        "considerations": [
+            "seal",
+            "tiger",
+            "lion",
+            "sheep",
+            "monkey",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "75208.19999999925",
+        "info": "size of animal",
+        "info_rt": "18695.5",
+        "subject_id": 58
+    },
+    {
+        "answer": "penguin",
+        "answer_rt": "53371",
+        "considerations": [
+            "panda",
+            "snake",
+            "lion",
+            "gorrilla",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "87397",
+        "info": "If the animal is currently available to be seen and the age of the children are 2 good things to take into account.",
+        "info_rt": "48712",
+        "subject_id": 63
+    },
+    {
+        "answer": "Meerkats",
+        "answer_rt": "34238.10000002384",
+        "considerations": [
+            "lions",
+            "zebras",
+            "hippos",
+            "warthogs",
+            "meerkats",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "47507",
+        "info": "Since the kids can only see one, and may be scared of larger animals, I felt it was important to pick something that was small, cute, but also generally active enough to keep the kids attention.",
+        "info_rt": "39651.89999997616",
+        "subject_id": 57
+    },
+    {
+        "answer": "Monkey",
+        "answer_rt": "10128",
+        "considerations": [
+            "lion",
+            "tiger",
+            "bear",
+            "monkey",
+            "gorilla",
+            "giraffe",
+            "zebra",
+            "elephant "
+        ],
+        "considerations_rt": "30839",
+        "info": "what constitutes a large and a small animal",
+        "info_rt": "16462",
+        "subject_id": 55
+    },
+    {
+        "answer": "birds in the aviary",
+        "answer_rt": "65019.09999999963",
+        "considerations": [
+            "lions",
+            "great apes",
+            "elephants",
+            "zebras",
+            "reptile house",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "117116.20000000112",
+        "info": "with thde birds we can experience a variety of species from various habitats...",
+        "info_rt": "78399.10000000149",
+        "subject_id": 62
+    },
+    {
+        "answer": "I would take them to see the monkeys. All kids like monkeys and I think they would keep the kids entertained.",
+        "answer_rt": "31308.5",
+        "considerations": [
+            "Elephants",
+            "Lions",
+            "Tigers",
+            "Monkeys",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "56038.699999999255",
+        "info": "I would want to give the kids as full of an experience as I could with the limited amount of time we had. ",
+        "info_rt": "26161.39999999851",
+        "subject_id": 56
+    },
+    {
+        "answer": "Monkey",
+        "answer_rt": "26870.199999999255",
+        "considerations": [
+            "giraffe",
+            "elephant",
+            "rhino",
+            "monkey",
+            "gorilla ",
+            "snakes",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "71676.5",
+        "info": "I took into consideration that the children were scared of large animals.",
+        "info_rt": "31410.800000000745",
+        "subject_id": 60
+    },
+    {
+        "answer": "Okapi",
+        "answer_rt": "6694",
+        "considerations": [
+            "Monkeys",
+            "Peacocks",
+            "Flamingos",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "32826",
+        "info": "Whether the animal is inherently intimidating",
+        "info_rt": "15495",
+        "subject_id": 59
+    },
+    {
+        "answer": "chimps",
+        "answer_rt": "21572.700000001118",
+        "considerations": [
+            "giraffe",
+            "elephant",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "20650.5",
+        "info": "That the animal is small enough and active as well",
+        "info_rt": "17557.5",
+        "subject_id": 61
+    },
+    {
+        "answer": "Monkeys",
+        "answer_rt": "19634",
+        "considerations": [
+            "Monkey",
+            "Elephant",
+            "Gorilla ",
+            "Hippo",
+            "Giraffe",
+            "Lion",
+            "Tiger",
+            "Panda"
+        ],
+        "considerations_rt": "59851.59999990463",
+        "info": "I thought about an interesting animal children might enjoy seeing while not being too big that would scare them. A monkey seems like it would be small enough and active to keep a child's attention.",
+        "info_rt": "56151.10000002384",
+        "subject_id": 64
+    },
+    {
+        "answer": "Monkey",
+        "answer_rt": "20720",
+        "considerations": [
+            "elephant",
+            "lion",
+            "tiger",
+            "monkey",
+            "giraffe",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "38324",
+        "info": "The size and look of the animal. A friendly look and a cute personality should be considered as important for children.",
+        "info_rt": "49168",
+        "subject_id": 65
+    },
+    {
+        "answer": "I would take them to see one of the smaller birds",
+        "answer_rt": "70414.39999985695",
+        "considerations": [
+            "gorillas",
+            "snakes",
+            "flamingos",
+            "bears",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "66559.59999990463",
+        "info": "Whether or not the children might still be afraid of any species that might be smaller",
+        "info_rt": "47082.5",
+        "subject_id": 66
+    },
+    {
+        "answer": "Otters",
+        "answer_rt": "22332.5",
+        "considerations": [
+            "Giraffes",
+            "Snakes",
+            "Otters",
+            "Lions",
+            "Insects/spiders",
+            "Tigers",
+            "Monkeys",
+            "Meerkats"
+        ],
+        "considerations_rt": "137354.8999999985",
+        "info": "Otters are small, active, and playful. They would be an entertaining part of the zoo experience. They are far from scary. Explaining their social dynamics could also be a good learning experience.",
+        "info_rt": "58885.20000000298",
+        "subject_id": 67
+    },
+    {
+        "answer": "penguin ",
+        "answer_rt": "84436",
+        "considerations": [
+            "Lion",
+            "Tiger",
+            "Giraffe ",
+            "Snake",
+            "Lizard",
+            "Penguin",
+            "N/A",
+            "N/A"
+        ],
+        "considerations_rt": "52688",
+        "info": "I took into account the size of the animal, the general scariness of the animal and the availability as a zoo animal and availability outside of a zoo environment. ",
+        "info_rt": "152500.89999997616",
+        "subject_id": 70
+    },
+    {
+        "answer": "leopard",
+        "answer_rt": "13831.400000095367",
+        "considerations": [
+            "Elephant",
+            "hippo",
+            "bear",
+            "giraffe",
+            "na",
+            "na",
+            "na",
+            "na"
+        ],
+        "considerations_rt": "41084.300000071526",
+        "info": "The child is afraid of large animals, so should be shown a medium or small animal.",
+        "info_rt": "47310.699999928474",
+        "subject_id": 68
+    },
+    {
+        "answer": "Lion",
+        "answer_rt": "52592",
+        "considerations": [
+            "Elephant",
+            "Shark",
+            "Giraffe",
+            "Monkey",
+            "Lion",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "63382",
+        "info": "I was told the children might be afraid of large animals. However, I did not know what was considered too large. Also, there are certain animals that children look forward to seeing at the zoo, so I should try to pick one of those.",
+        "info_rt": "69362",
+        "subject_id": 69
+    },
+    {
+        "answer": "kangaroo",
+        "answer_rt": "34144",
+        "considerations": [
+            "chimp",
+            "gorilla",
+            "lion",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "27009",
+        "info": "What animals are frightening and which are interesting.  Kangaroo's can be dangerous but are not thought of that way. ",
+        "info_rt": "54963",
+        "subject_id": 71
+    },
+    {
+        "answer": "I would take them to see one of the smaller animals in the petting zoo (goat, rabbit, etc.)",
+        "answer_rt": "45825",
+        "considerations": [
+            "Giraffe",
+            "Hippo",
+            "Goat",
+            "Rabbit",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "35946",
+        "info": "The preferences of the children are to avoid large animals, so I went first for animals that were large but perhaps not as intimidating (giraffes and hippos are slow-moving, and hippos expelling feces can be funny and break the tension with the kids).",
+        "info_rt": "53656",
+        "subject_id": 72
+    },
+    {
+        "answer": "Meerkats",
+        "answer_rt": "32244.5",
+        "considerations": [
+            "Lion",
+            "Elephant",
+            "Giraffe",
+            "Tiger",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "44170.29999999702",
+        "info": "That the zoo closed soon and they didn't like large animals so I needed to think of an exciting little animal.",
+        "info_rt": "44650.70000000298",
+        "subject_id": 73
+    },
+    {
+        "answer": "Monkey",
+        "answer_rt": "33046.80000000005",
+        "considerations": [
+            "Giraffe ",
+            "Elephant",
+            "Gorilla",
+            "Tiger",
+            "Lion",
+            "Bear",
+            "Hippo",
+            "Monkey"
+        ],
+        "considerations_rt": "59416.69999999995",
+        "info": "The childrens likes and dislikes.",
+        "info_rt": "13981.200000000186",
+        "subject_id": 74
+    },
+    {
+        "answer": "Wolf",
+        "answer_rt": "16390",
+        "considerations": [
+            "Flamingo",
+            "Rabbit",
+            "Penguin",
+            "Zebra",
+            "Wolf",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "22174.80000000028",
+        "info": "Small, but popular animals that every children know about.",
+        "info_rt": "14411.100000000093",
+        "subject_id": 75
+    },
+    {
+        "answer": "Monkeys",
+        "answer_rt": "35848.5",
+        "considerations": [
+            "Tiger",
+            "Bear",
+            "Giraffee",
+            "Elephant",
+            "Lion",
+            "N/A",
+            "N/A",
+            "Monkey"
+        ],
+        "considerations_rt": "79595.60000002384",
+        "info": "That the children would be afraid of large animals",
+        "info_rt": "37235.10000002384",
+        "subject_id": 77
+    },
+    {
+        "answer": "Penguins",
+        "answer_rt": "22094",
+        "considerations": [
+            "Tiger",
+            "Gorilla",
+            "Penguin",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "47793.299999952316",
+        "info": "How much the children will like seeing the animal. If the animal could scare them or not. ",
+        "info_rt": "54712.5",
+        "subject_id": 76
+    },
+    {
+        "answer": "monkeys",
+        "answer_rt": "14113.399999976158",
+        "considerations": [
+            "lion",
+            "fish",
+            "monkeys",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "50058.19999998808",
+        "info": "What will not frighten the kids and what will be the most fun to see. ",
+        "info_rt": "69838.89999997616",
+        "subject_id": 78
+    },
+    {
+        "answer": "monkey",
+        "answer_rt": "15480.60000038147",
+        "considerations": [
+            "giraffe",
+            "zebra",
+            "birds",
+            "monkey",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "31829.900000095367",
+        "info": "Finding an interesting animal to view but that is small so it doesn't frighten anyone",
+        "info_rt": "23998.5",
+        "subject_id": 79
+    },
+    {
+        "answer": "capybara",
+        "answer_rt": "22362.399999976158",
+        "considerations": [
+            "lion",
+            "tiger",
+            "elephant",
+            "polar bear",
+            "capybara",
+            "moose",
+            "penguin",
+            "ostrich"
+        ],
+        "considerations_rt": "45528",
+        "info": "I think you should take into account the size of the animal, the cuteness and appeal of the animal, and how threatening (or ideally un-threatening) the animal appears to be. ",
+        "info_rt": "42435.700000047684",
+        "subject_id": 80
+    },
+    {
+        "answer": "Monkey",
+        "answer_rt": "12213.100000023842",
+        "considerations": [
+            "Lion",
+            "Penguin",
+            "Tiger",
+            "Bear",
+            "Bird",
+            "Cheetah",
+            "Gorilla",
+            "n/a"
+        ],
+        "considerations_rt": "28501.700000047684",
+        "info": "Before making the decision, there should be some consideration about the group dynamics and the potential for a large presence there, reducing the actual experience.",
+        "info_rt": "28236.400000035763",
+        "subject_id": 81
+    },
+    {
+        "answer": "Monkeys",
+        "answer_rt": "26815",
+        "considerations": [
+            "Elephant",
+            "Lions",
+            "Turtles",
+            "Bugs",
+            "NA",
+            "NA",
+            "NA",
+            "NA"
+        ],
+        "considerations_rt": "26325",
+        "info": "Most unique animals to kids that won\u2019t scare them. ",
+        "info_rt": "19039",
+        "subject_id": 82
+    },
+    {
+        "answer": "penguin",
+        "answer_rt": "10387.399999976158",
+        "considerations": [
+            "Tiger",
+            "Lion",
+            "Zebra",
+            "Cheetah",
+            "Penguin",
+            "Snakes",
+            "Eagles",
+            "Owl"
+        ],
+        "considerations_rt": "40643.60000002384",
+        "info": "Since only 1 animal can be seen, a rare one that is generally liked should be chosen, that's why I chose the penguin.",
+        "info_rt": "52440.89999997616",
+        "subject_id": 83
+    },
+    {
+        "answer": "Monkeys",
+        "answer_rt": "22108.20000000298",
+        "considerations": [
+            "lions",
+            "elephants",
+            "tigers",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "52043.39999999106",
+        "info": "What would the children enjoy and not be scared of.  Monkeys can be so funny and they would make the children laugh.",
+        "info_rt": "59523.5",
+        "subject_id": 84
+    },
+    {
+        "answer": "red pandas",
+        "answer_rt": "53405.40000000596",
+        "considerations": [
+            "lion",
+            "elephant",
+            "zebra",
+            "red panda",
+            "N/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "32139.80000001192",
+        "info": "For the first several answers, I thought of them before I finished reading the question.",
+        "info_rt": "26839.20000001788",
+        "subject_id": 85
+    },
+    {
+        "answer": "Koala",
+        "answer_rt": "36090",
+        "considerations": [
+            "Lion",
+            "Tiger",
+            "Elephant",
+            "Sloth",
+            "Kangaroo",
+            "Koala",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "50998",
+        "info": "Of course the most important bit of information is that the kids might be afraid of larger animals. As a result, the size of the animal should be considered. As well, since there is limited time, seeing an animal that the kids could actually observe doing something in a short amount of time is preferable (i.e. a sloth wouldn't make sense because they move so slow).",
+        "info_rt": "187909",
+        "subject_id": 86
+    },
+    {
+        "answer": "monkeys",
+        "answer_rt": "20345.19999998808",
+        "considerations": [
+            "zebra",
+            "birds",
+            "monkeys",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "22230.5",
+        "info": "what animals children like and what they might have the most enjoyment from in the moment",
+        "info_rt": "21222.19999998808",
+        "subject_id": 87
+    },
+    {
+        "answer": "penguins",
+        "answer_rt": "23007.29999998212",
+        "considerations": [
+            "gorillas",
+            "zebras",
+            "lions",
+            "penguins",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "50077",
+        "info": "I considered the information given, which was that the children would be scared of the larger zoo animals. Considering this, I chose an animal that was smaller and cuter.",
+        "info_rt": "55042.20000001788",
+        "subject_id": 88
+    },
+    {
+        "answer": "Giraffe",
+        "answer_rt": "15903.700000047684",
+        "considerations": [
+            "Tiger",
+            "Bear",
+            "Snakes",
+            "Gazelles",
+            "Hippo",
+            "Lion",
+            "Warthogs",
+            "Flamingos"
+        ],
+        "considerations_rt": "46645.10000002384",
+        "info": "It should be taken into account that the children are afraid of larger animals.",
+        "info_rt": "26482.799999952316",
+        "subject_id": 89
+    },
+    {
+        "answer": "tiger",
+        "answer_rt": "17815.5",
+        "considerations": [
+            "geraffee",
+            "lepoard",
+            "lion",
+            "zebra",
+            "tiger",
+            "shaek",
+            "polar bear",
+            "panda"
+        ],
+        "considerations_rt": "39774.5",
+        "info": "I liked the animal i picked them most",
+        "info_rt": "13932.90000000596",
+        "subject_id": 91
+    },
+    {
+        "answer": "penguins",
+        "answer_rt": "11256.39999999851",
+        "considerations": [
+            "penguins",
+            "giraffes",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "30174.800000000745",
+        "info": "I think the size of the animals should be taken into consideration, as well as how interesting the animals are.",
+        "info_rt": "15421.10000000149",
+        "subject_id": 90
+    },
+    {
+        "answer": "Elephant",
+        "answer_rt": "9949",
+        "considerations": [
+            "Tiger",
+            "Elephant",
+            "Giraffe",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "monkey"
+        ],
+        "considerations_rt": "23993",
+        "info": "If there is safety in both the containment of the animal and of the nature of the animal if they are peaceful or fierce being.",
+        "info_rt": "20602",
+        "subject_id": 92
+    },
+    {
+        "answer": "monkeys",
+        "answer_rt": "10528.799999952316",
+        "considerations": [
+            "monkey",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "34484.700000047684",
+        "info": "Large animals that may scare the child",
+        "info_rt": "15790",
+        "subject_id": 93
+    },
+    {
+        "answer": "Monkeys",
+        "answer_rt": "25341.39999985695",
+        "considerations": [
+            "Elephant",
+            "Lion",
+            "Monkey",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "65057.299999952316",
+        "info": "It said the kids might be afraid of the larger animals, so I chose monkeys.  Monkeys are fun.",
+        "info_rt": "43489.200000047684",
+        "subject_id": 94
+    },
+    {
+        "answer": "panda",
+        "answer_rt": "8599.400000000373",
+        "considerations": [
+            "giraffe",
+            "lion",
+            "snake",
+            "monkey",
+            "bear",
+            "zebra",
+            "panda",
+            "n/a"
+        ],
+        "considerations_rt": "37753.199999999255",
+        "info": "the size of the animal",
+        "info_rt": "9883.900000000373",
+        "subject_id": 95
+    },
+    {
+        "answer": "panda",
+        "answer_rt": "19816",
+        "considerations": [
+            "Lion",
+            "Gazelle",
+            "Koala",
+            "Panda",
+            "n/a",
+            "n/a",
+            "n/A",
+            "n/a"
+        ],
+        "considerations_rt": "32729",
+        "info": "What animal might scare the children and which animal might seem the least offensive.",
+        "info_rt": "20350",
+        "subject_id": 96
+    },
+    {
+        "answer": "Giraffes ",
+        "answer_rt": "24950",
+        "considerations": [
+            "Lion",
+            "Tiger",
+            "Giraffe",
+            "Otters",
+            "Dolphin",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "77668.5",
+        "info": "How active the animals are and how close you can get to them.  How fun and unique they are i.e. you can't help smiling when looking at a giraffe. ",
+        "info_rt": "60098.299999952316",
+        "subject_id": 97
+    },
+    {
+        "answer": "Lion",
+        "answer_rt": "13590.200000000186",
+        "considerations": [
+            "tiger",
+            "birds",
+            "seals",
+            "elephants",
+            "zebras",
+            "cheetahs",
+            "pandas",
+            "leopard"
+        ],
+        "considerations_rt": "29675.69999999972",
+        "info": "thoughts on the big cats, how they live, how they are taken care, how they may lounge during the day. I think it may be of interest to young children",
+        "info_rt": "41428.39999999991",
+        "subject_id": 98
+    },
+    {
+        "answer": "monkeys",
+        "answer_rt": "12668.100000000093",
+        "considerations": [
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a",
+            "n/a"
+        ],
+        "considerations_rt": "14202.599999999627",
+        "info": "monkeys",
+        "info_rt": "5318.899999999907",
+        "subject_id": 99
+    }
+]

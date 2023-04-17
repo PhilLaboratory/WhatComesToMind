@@ -293,6 +293,8 @@ def get_ft_relevance(data):
     for cat, ft_eors in ease_of_res.items():
         for ft, eors in ft_eors.items():
             ease_of_res[cat][ft] = np.mean(eors)
+    with open('../clean_data/study6/ease_of_response.json', 'w') as f:
+        json.dump(ease_of_res, f)
     #normalize within each category
     relevance = {}
     for cat, ft_eor in ease_of_res.items():
