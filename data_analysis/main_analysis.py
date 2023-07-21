@@ -86,7 +86,7 @@ def plot_ratings_3d():
     data = {'large':[],'striking':[],'dangerous':[],'colors':[],'labels':[]}
     for l in labels:
         data['large'].append(ratings['large'][l])
-        data['strking'].append(ratings['striking'][l])
+        data['striking'].append(ratings['striking'][l])
         data['dangerous'].append(ratings['dangerous'][l])
         data['colors'].append(math.log(response_counts[l]/sum(response_counts.values())))
         data['labels'].append(l)
@@ -289,6 +289,7 @@ For each category in keys, plots each feature's predictiveness of what comes to 
 Features negatively correlated with likelihood of coming to mind plotted in red
 """
 def plot_ft_predictiveness(ft_pred):
+    plt.figure(figsize=(12.5,8.5))
     #in each category, plot predictiveness of each feature
     for cat in ft_pred.keys():
         #sort data
@@ -309,31 +310,33 @@ def plot_ft_predictiveness(ft_pred):
                 l="large feet"
             if l == "has long hair":
                 l = "long hair"
+            if l=="dishes":
+                l="in many dishes"
             labels[i] = l
         
         #color bars by sign of correlation
-        hatches=[]
         colors = []
+        edgecolors=[]
         for pair in data:
             if pair[1] > 0:
-                colors.append('blue')
+                colors.append('skyblue')
+                edgecolors.append('skyblue')
             else:
-                colors.append('red')
+                colors.append('salmon')
+                edgecolors.append('salmon')
             if pair[0] in ["typical", "good"]:
-                hatches.append("//")
-            else:
-                hatches.append("")
-        
+                edgecolors[-1] = 'black'
         #set labels and plot 
         pos = range(len(labels))
-        plt.bar(pos, counts, color=colors)
-        blue_patch = mpatches.Patch(color='blue', label='positive')
-        red_patch = mpatches.Patch(color='red', label='negative')
+        plt.bar(pos, counts, color=colors, edgecolor=edgecolors, linewidth=2)
+        blue_patch = mpatches.Patch(color='skyblue', label='positive')
+        red_patch = mpatches.Patch(color='salmon', label='negative')
         plt.legend(handles=[blue_patch, red_patch], fontsize=14)
         #plt.legend(['negative', ''], fontsize=12)
         plt.xticks(pos, labels, rotation=60, fontsize=12, ha="right")
         plt.title(cat.title(), fontweight='bold', fontsize=24)
         plt.ylabel('Strength of Predictiveness of What Comes to Mind', fontweight='bold', fontsize=16)
+        #plt.savefig(cat + '.png', dpi=1000)
         plt.show()
 
 """
@@ -426,8 +429,12 @@ def plot_intrusions():
         plt.legend(loc='upper left')
         plt.show()
 
-def plot_decision_ft_predictiveness(ft_pred, is_response):
-    data = sorted(ft_pred.items(), key=lambda x: abs(x[1]), reverse=True) 
+
+def plot_decision_ft_predictiveness(ft_pred, is_response, order):
+    plt.figure(figsize=(12,8))
+
+    data = sorted(ft_pred.items(), key=lambda x: abs(order[x[0]]), reverse=True) 
+    
     #store predictiveness of each feature
     counts = [abs(pair[1]) for pair in data]
 
@@ -448,14 +455,14 @@ def plot_decision_ft_predictiveness(ft_pred, is_response):
     colors = []
     for pair in data:
         if pair[1] > 0:
-            colors.append('blue')
+            colors.append('skyblue')
         else:
-            colors.append('red')
+            colors.append('salmon')
     #set labels and plot
     pos = range(len(labels))
     plt.bar(pos, counts, color=colors)
-    blue_patch = mpatches.Patch(color='blue', label='positive')
-    red_patch = mpatches.Patch(color='red', label='negative')
+    blue_patch = mpatches.Patch(color='skyblue', label='positive')
+    red_patch = mpatches.Patch(color='salmon', label='negative')
     plt.legend(handles=[blue_patch, red_patch], fontsize=14)
     plt.xticks(pos, labels, rotation=60, fontsize=11, ha="right")
     #plt.title("zoo animals", fontweight='bold', fontsize=24)
@@ -463,7 +470,7 @@ def plot_decision_ft_predictiveness(ft_pred, is_response):
         plt.ylabel('Strength of Predictiveness of Response Probability', fontweight='bold', fontsize=14)
     else:
         plt.ylabel('Strength of Predictiveness of Consideration Probability', fontweight='bold', fontsize=14)
-    plt.show()
+    #plt.show()
 
 
 def compare_ft_predictiveness(ft_pred1, ft_pred2, is_response):
@@ -513,9 +520,7 @@ def compare_ft_predictiveness(ft_pred1, ft_pred2, is_response):
     plt.show()
     print(stats.pearsonr(c1,c2))
 
-"""
-Runs all analyses by default
-"""
+
 if __name__ == "__main__":  
     data_loc = '../clean_data/'
 
@@ -533,12 +538,13 @@ if __name__ == "__main__":
     ft_pred = get_ft_predictiveness(response_counts, ratings)
     plot_ft_predictiveness(ft_pred)
 
+    
     #plot feature predictiveness in ad hoc categories
     with open(data_loc + 'study4/generation_response_counts.json') as f:
-        response_counts = json.load(f)
+        adh_response_counts = json.load(f)
     with open(data_loc + 'study4/ratings.json') as f:
-        ratings = json.load(f)
-    adhoc_ft_pred = get_ft_predictiveness(response_counts, ratings)
+        adh_ratings = json.load(f)
+    adhoc_ft_pred = get_ft_predictiveness(adh_response_counts, adh_ratings)
     plot_ft_predictiveness(adhoc_ft_pred)
     
     #plot intrusion probability and print lmer details
@@ -552,7 +558,7 @@ if __name__ == "__main__":
     #and print correlation details
     plot_ft_predicteveness_vs_relevance(ft_pred)
     
-
+    print(ratings.keys())
     #get feature predictiveness for decision making consideration probability and response probability
     with open(data_loc + 'study7/response_counts.json') as f:
         decision_response_counts = json.load(f)
@@ -562,12 +568,11 @@ if __name__ == "__main__":
     decision_consid_ft_pred = get_decision_ft_predictiveness(decision_consideration_counts, ratings["zoo animals"])
     #plot relationship between general feature predictiveness,
     #and feature predictiveness of responses in study 7
-    plot_decision_ft_predictiveness(decision_response_ft_pred, True)
+    plot_decision_ft_predictiveness(decision_response_ft_pred, True, decision_consid_ft_pred)
 
     #plot relationship between general feature predictiveness,
     #and feature predictiveness of considerations in study 7
-    plot_decision_ft_predictiveness(decision_consid_ft_pred, False)
-
+    plot_decision_ft_predictiveness(decision_consid_ft_pred, False, decision_consid_ft_pred)
     #plot relationship between feature predictiveness of responses
     #and general feature predictiveness for zoo animals
     #print correlation
@@ -577,4 +582,3 @@ if __name__ == "__main__":
     #and general feature predictiveness for zoo animals
     #print correlation
     compare_ft_predictiveness(decision_consid_ft_pred, ft_pred["zoo animals"], False)
-    

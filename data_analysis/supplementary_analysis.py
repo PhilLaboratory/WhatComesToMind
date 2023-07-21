@@ -28,9 +28,9 @@ def factor_analysis():
 
         #check whether factor analysis is appropriate with bartlett sphericity and kmo
         chi_square_value,p_value=calculate_bartlett_sphericity(df)
-        #print(chi_square_value, p_value)
+        print(chi_square_value, p_value)
         kmo_all,kmo_model=calculate_kmo(df)
-        #print(kmo_all,kmo_model)
+        print(kmo_all,kmo_model)
 
         #get number of factors with eigenvalues >1
         fa = FactorAnalyzer(len(ratings.keys()), rotation=None)
